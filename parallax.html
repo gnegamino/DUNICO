@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallax</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+	#image{
+		position: relative;
+		z-index: -1;
+	}
+	#content{
+		height: 750px;
+		width: 100%;
+		margin-top: -10px;
+		background: #4dbbac;
+		position: relative;
+		z-index: 1; 
+	}
+</style>
+<script type="text/javascript">
+	var ypos, image;
+	function parallex(){
+		ypos = window.pageYOffset;
+		image = document.getElementById('image');
+		image.style.top = ypos * .4 + 'px';
+	}
+	window.addEventListener('scroll', parallex);
+
+</script>
+<body>
+<!-- 	<img id="image" src="arch/3.jpg" height="750px" width="100%">
+	<div id="content"></div> -->
+	<h1>Space</h1>
+
+	<section class="parallax">
+		<div class="parallax-inner">
+
+			<h2>Space</h2>
+		
+		</div>
+	</section>
+	
+	<h1>Space</h1>
+	<section class="parallax2">
+		<div class="parallax-inner">
+
+			<h2>Space</h2>
+		
+		</div>
+	</section>
+
+</body>
+</html>
