@@ -1,3 +1,26 @@
+@font-face{
+	font-family: Lato-Regular;
+	src: url(../fonts/Lato-Regular.ttf);
+}
+@font-face{
+	font-family: Lato-Light;
+	src: url(../fonts/Lato-Light.ttf);
+}
+@font-face{
+	font-family: Lato-Hairline;
+	src: url(../fonts/Lato-Hairline.ttf);
+}
+@font-face{
+	font-family: Lato-Bold;
+	src: url(../fonts/Lato-Bold.ttf);
+}
+@font-face{
+	font-family: Lato-Black;
+	src: url(../fonts/Lato-Black.ttf);
+}
+*{
+	font-family: Lato-Light;
+}
 html{
 	height: 100%;
 }
@@ -10,6 +33,7 @@ body{
 	background-image: url(../img/seamlesscarbon.png);
 	height: 100%;
 	overflow: hidden;
+	position: relative;
 }
 #navigation.navbar{
 	border-radius: 0px;
@@ -53,7 +77,8 @@ body{
 	padding-left: 15px;
 	font-family: Trebuchet MS;
 }
-#navigation .navbar-header .navbar-brand span{
+#navigation .navbar-header .navbar-brand span,
+.i-red{
 	color: #ff2828;
 }
 #featured{
@@ -63,7 +88,7 @@ body{
 	width: 100%;
 }
 #featured .carousel-inner{
-	height: 643px;
+	height: 680px;
 }
 
 /*PARALLAX*/
@@ -137,4 +162,78 @@ h2{
       -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0);
     }
+}
+
+.black-bg{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: url(../img/black-bg.png); 
+	z-index: 0;
+}
+/*Profile*/
+#profile{
+	color: #fff;
+	font-family: Lato-Light;
+}
+.push-down{
+	margin-top: 95px;
+}
+#profile h2{
+	font-size: 50px;
+	text-align: left;
+	text-shadow: #000000 1px 1px 2px;
+}
+#profile #our-profile,
+#profile #our-founder{
+	position: relative;
+}
+#profile #our-founder{
+	display: none;
+}
+#profile #our-profile p,
+#profile #our-founder p{
+	text-align: justify;
+	text-shadow: #000000 1px 1px 2px;
+}
+#profile #our-founder h3{
+	margin-top: -10px;
+	margin-bottom: 25px;
+	font-family: Lato-Regular;
+}
+#profile #our-profile p{
+	line-height: 1.8;
+	font-size: 18px;
+}
+#profile #our-founder p{
+	line-height: 1.28;
+	font-size: 16.5px;
+}
+#profile #our-founder img{
+	width: 200px;
+	margin-left: 25px;
+	box-shadow: #222 0px 3px 4px;
+}
+#profile-bc.breadcrumb{
+	background: none;
+	padding: 0;
+	margin-bottom: 0;
+}
+#profile-bc.breadcrumb > li + li:before{
+	padding: 0 8px;
+	font-size: 18px;
+}
+#profile-bc.breadcrumb li a,
+#profile-bc.breadcrumb li.active{
+	font-size: 18px;
+	font-family: Lato-Regular;
+}
+#profile-bc.breadcrumb li a{
+	color: #fff;
+}
+#profile-bc.breadcrumb li.active a{
+	color: #777;
+	text-decoration: none;
 }
