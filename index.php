@@ -1,6 +1,5 @@
 <?php include("header.php"); ?>
-<body>
-	<div class="seamless">
+	<body>
 		<?php include("navigation.php"); ?>
 	  	<div class="container-fluid">
 			<div class="row">
@@ -50,10 +49,9 @@
 					</div>
 
 					<!-- <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
-    				<a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a> -->
+					<a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a> -->
 				</div>
 			</div>
 		</div>
-	</div>
 	</body>
 </html>
