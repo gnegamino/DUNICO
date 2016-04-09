@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
-	<body>
+	<body class="hidden-overflow">
 		<?php include("navigation.php"); ?>
 	  	<div class="container-fluid">
 			<div class="row">

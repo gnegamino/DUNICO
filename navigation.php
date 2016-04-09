@@ -12,10 +12,10 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="index.php">Home</a></li>
-				<li><a href="#">Projects</a></li>
+				<li><a href="projects.php">Projects</a></li>
 				<li><a href="services.php">Services</a></li>
 				<li><a href="about.php">About</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="contact.php">Contact</a></li>
 			</ul>
 	    </div>
 	</div>
