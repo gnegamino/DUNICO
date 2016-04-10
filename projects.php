@@ -26,49 +26,49 @@
 				<div class="pull-right">
 					<div class="p-container clearfix">
 						<?php for ($i=0; $i < 3; $i++) { ?>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/1.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
 						</a>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/2.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
 						</a>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/3.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
 						</a>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/4.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
 						</a>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/5.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
 						</a>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/6.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
 						</a>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/7.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
 						</a>
-						<a href="#">
+						<a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/8.jpg">
 								<div class="p-caption">Corporate Example Example</div>
