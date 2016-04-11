@@ -1,5 +1,6 @@
 <?php include("header.php"); ?>
 	<body class="hidden-overflow">
+		<div class="seamless-bg"></div>
 		<?php include("navigation.php"); ?>
 	  	<div class="container-fluid">
 			<div class="row">
@@ -16,40 +17,45 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img src="arch/16F RECEPTION.jpg">
+							<img src="arch/HSSR OFFICE.jpg">
 							<div class="carousel-caption">
-								...
-							</div>
-						</div>
-						<div class="item">
-							<img src="arch/BOARD ROOM R1.jpg">
-							<div class="carousel-caption">
-								...
-							</div>
-						</div>
-						<div class="item">
-							<img src="arch/EXECUTIVE BOARDROOM.jpg">
-							<div class="carousel-caption">
-								...
-							</div>
-						</div>
-						<div class="item">
-							<img src="arch/front 1.jpg">
-							<div class="carousel-caption">
-								...
 							</div>
 						</div>
 						<div class="item">
 							<img src="arch/LOUNGE AREA R1.jpg">
 							<div class="carousel-caption">
-								...
 							</div>
 						</div>
-						...
+						<div class="item">
+							<img src="arch/EXECUTIVE BOARDROOM.jpg">
+							<div class="carousel-caption">
+							</div>
+						</div>
+						<div class="item">
+							<img src="arch/front 1.jpg">
+							<div class="carousel-caption">
+							</div>
+						</div>
+						<div class="item">
+							<img src="arch/LOUNGE AREA R1.jpg">
+							<div class="carousel-caption">
+							</div>
+						</div>
 					</div>
-
-					<!-- <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
-					<a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a> -->
+					<div class="company-caption">
+						<h1>Creative processes, unparalleled ideas</h1>
+						<p>
+							Our values reflect our commitment in providing with you a 
+							distinctive experience that harmonize unique architecture 
+							which embodies with one goal in mind - creative process, 
+							efficient space, unparalleled idea, clean lines and forms.
+						</p>
+						<div class="pull-right media-links">
+							<a href="projects.php">
+								View our projects&nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

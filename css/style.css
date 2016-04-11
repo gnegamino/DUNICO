@@ -36,11 +36,20 @@ body{
 	position: relative;
 	background: initial;
 }
-.seamless{
+.seamless,
+.seamless-bg{
 	background-image: url(../img/seamlesscarbon.png);
 	height: 100%;
 	overflow: hidden;
 	position: relative;
+}
+.seamless-bg{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
 }
 #navigation.navbar{
 	border-radius: 0px;
@@ -92,13 +101,46 @@ body{
 	width: 100%;
 }
 #featured .carousel-inner{
-	height: 680px;
+	height: 100%;
+}
+#featured .carousel-indicators{
+	position: fixed;
+	bottom: 20px;
+	z-index: 2;
 }
 #featured .carousel-inner .carousel-caption{
 	position: absolute;
-	top: 0;
+	top: 100;
 }
-
+#featured .company-caption{
+	position: fixed;
+	top: 220px;
+	left: 115px;
+	z-index: 2;
+	background: rgba(8,8,8,0.6);
+	padding: 20px 25px;
+}
+#featured .company-caption h1{
+	margin-top: 10px;
+	font-family: Lato-Bold;
+}
+#featured .company-caption p{
+	width: 590px;
+	line-height: 1.5;
+	font-size: 20px;
+}
+#featured .company-caption .media-links a{
+	font-size: 20px;
+	font-family: Lato-Regular;
+	text-transform: uppercase;
+	color: #fff;
+}
+#featured .company-caption .media-links a:hover{
+	color: #ff9900;
+	cursor: pointer;
+	transition: 0.4s;
+	text-decoration: none;
+}
 /*PARALLAX*/
 /*h1{
 	text-align: center;
@@ -437,5 +479,11 @@ h2{
 	margin-top: 15px;
 	font-size: 22px;
 	text-transform: uppercase;
-	font-family: Lato-Hairline;
+	font-family: Lato-Light;
+}
+.featured-project .p-previous:hover,
+.featured-project .p-next:hover{
+	color: #ff9900;
+	cursor: pointer;
+	transition: 0.4s;
 }
