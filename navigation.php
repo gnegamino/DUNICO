@@ -1,3 +1,26 @@
+<script type="text/javascript">
+	$(function(){
+		$(".hide-menu", this).click(function(){
+			var status = $(".hide-menu span").html();
+
+			if (status == "HIDE MENU"){
+				$(this).fadeOut(function(){
+					$("#navigation").fadeOut(function(){
+						$(".hide-menu span").html("SHOW MENU");
+						$(".hide-menu").fadeIn();
+					});
+				});
+			}else{
+				$(this).fadeOut(function(){
+					$("#navigation").fadeIn(function(){
+						$(".hide-menu span").html("HIDE MENU");
+						$(".hide-menu").fadeIn();
+					});
+				});
+			}
+		});
+	});
+</script>
 <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top clearfix">
   	<div class="container">
 	    <div class="navbar-header">
@@ -20,3 +43,9 @@
 	    </div>
 	</div>
 </nav>
+<div class="hidden-logo">
+	D`UN<span class="i-red">I</span>CO
+</div>
+<div class="hide-menu">
+	<i class="fa fa-arrows"></i>&nbsp;&nbsp;<span>HIDE MENU</span>
+</div>

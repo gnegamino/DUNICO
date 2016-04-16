@@ -84,7 +84,8 @@ body{
 #navigation.navbar .navbar-right li{
 	border-left: 1px solid #080808;
 }
-#navigation .navbar-header .navbar-brand{
+#navigation .navbar-header .navbar-brand,
+.hidden-logo{
 	font-size: 36px;
 	color: #fff;
 	font-weight: bold;
@@ -96,6 +97,23 @@ body{
 #navigation .navbar-header .navbar-brand span,
 .i-red{
 	color: #ff2828;
+}
+.hidden-logo{
+	position: absolute;
+	left: 98px;
+	top: -16px;
+}
+.hide-menu{
+	border: 1px #101010 solid;
+	background: rgba(8,8,8,0.9);
+	font-family: Lato-Bold;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 3px 5px;
+	font-size: 12px;
+	cursor: pointer;
+	z-index: 1500;
 }
 #featured .carousel-inner img{
 	width: 100%;
