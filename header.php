@@ -1,4 +1,5 @@
 <?php 
+	require_once("connect.php");
 	$page_script = str_replace(".php", ".js", substr($_SERVER['PHP_SELF'], 1)); 
 ?>
 <!DOCTYPE html>
