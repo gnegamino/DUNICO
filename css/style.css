@@ -539,7 +539,13 @@ h2{
 	margin-top: 15px;
 	font-size: 16px;
 }
-#lbl_status{
+.lblmsg{
 	text-align: center;
+	font-size: 16px;
+}
+.lblmsg.danger{
 	color: #ff2828;
+}
+.lblmsg.success{
+	color: #b0ff28;
 }

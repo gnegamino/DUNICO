@@ -2,9 +2,10 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "121586";
+	$dbname = "db_dunico";
 
 	// Create connection
-	$conn = mysqli_connect($servername, $username, $password);
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 	// Check connection
 	if (!$conn) {
