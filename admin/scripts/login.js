@@ -22,13 +22,12 @@ $(function(){
 			success: function(response) {
 				clear_message_box();
 
-				$("#messagebox_2").html(response.error);
 				if(response.error != '')
-				{
 					build_message_box('messagebox_1', response.error, 'danger');
-				}else if(response)
-				{
-					$("#messagebox_2").html(response);
+				else{
+					$("#messagebox_2").addClass('lblmsg success dark').html('Connected!').promise().done(function(){
+						window.location.href = "home.php";
+					});
 				}
 			}       
 		});

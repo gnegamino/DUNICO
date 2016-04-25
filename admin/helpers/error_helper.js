@@ -17,7 +17,7 @@ function build_error_message(errors)
 
 function clear_message_box()
 {
-	$('#messagebox_1').html('');
-	$('#messagebox_2').html('');
-	$('#messagebox_3').html('');
+	$('#messagebox_1').removeClass().html('');
+	$('#messagebox_2').removeClass().html('');
+	$('#messagebox_3').removeClass().html('');
 }

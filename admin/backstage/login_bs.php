@@ -25,9 +25,13 @@
 	 			";
 
 	 		$result = mysqli_query($conn, $sql);
+ 			$row = mysqli_fetch_assoc($result);
 
-	 		if (mysqli_num_rows($result) > 0)
-	 			$response = true;
+	 		if (mysqli_num_rows($result) > 0){
+	 			session_start();
+	 			$_SESSION['user_id'] = $row['user_id'];
+	 			$_SESSION['full_name'] = $row['first_name'].' '.$row['last_name'];
+	 		}
 	 		else
 	 			$response['error'] = "Invalid credentials!";
 

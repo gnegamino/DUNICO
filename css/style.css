@@ -28,6 +28,9 @@ h1, h2, h3, p, a, div{
 body.hidden-overflow{
 	overflow: hidden;
 }
+body.admin{
+	background: #494949;
+}
 html{
 	height: 100%;
 }
@@ -85,7 +88,8 @@ body{
 	border-left: 1px solid #080808;
 }
 #navigation .navbar-header .navbar-brand,
-.hidden-logo{
+.hidden-logo,
+.a-logo{
 	font-size: 36px;
 	color: #fff;
 	font-weight: bold;
@@ -542,10 +546,87 @@ h2{
 .lblmsg{
 	text-align: center;
 	font-size: 16px;
+	text-shadow: initial;
 }
 .lblmsg.danger{
 	color: #ff2828;
 }
 .lblmsg.success{
 	color: #b0ff28;
+}
+.lblmsg.success.dark{
+	color: green;
+}
+.a-sidebar,
+.a-maincontent{
+	border: 1px #222 solid;
+	background: rgba(8,8,8,0.6);
+}
+.a-sidebar a:hover{
+	text-decoration: none;
+}
+.a-sidebar a div{
+	padding: 10px 12px;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.a-sidebar a:hover div{
+	color: #222;
+	background: #fff;
+	text-shadow: initial;
+	transition: 0.4s;
+}
+.a-logo{
+	padding-left: 43px;
+	padding-bottom: 23px;
+}
+.a-maincontent{
+	padding: 15px;
+}
+.a-maincontent .heading-title{
+	font-size: 24px;
+	font-family: Lato-Regular;
+	text-transform: uppercase;
+}
+.header-credentials{
+	border-bottom: 2px #fff solid;
+	background: rgba(8,8,8,0.6);
+	padding: 5px 8px;
+	font-size: 16px;
+}
+.tbl-layout td{
+	padding: 3px;
+}
+.marg.top{
+	margin-top: 15px;
+}
+.marg.left{
+	margin-left: 15px;
+}
+.content-split{
+	margin-top: 15px;
+}
+.userpic{
+	width: 100px;
+	height: 100px;
+	padding: 3px;
+	background: #fff;
+	float: left;
+}
+textarea{
+	resize: none;
+}
+.modal-dialog .modal-header{
+	background: #222;
+	text-transform: uppercase;
+	font-family: Lato-Regular;
+}
+.modal-dialog .modal-body,
+.modal-dialog .modal-body .tbl-layout td{
+	color: #222;
+	text-shadow: none;
+}
+
+#change_password .modal-dialog{
+	width: 339px;
 }
