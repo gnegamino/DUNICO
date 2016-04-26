@@ -78,7 +78,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Change Password</h4>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" align="center">
 				<div id="messagebox_1"></div>
 				<table class="tbl-layout">
 					<tr>

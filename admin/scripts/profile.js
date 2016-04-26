@@ -5,7 +5,18 @@ $(function(){
 
 	$('#update_password').click(function(){
 		clear_message_box();
-		update_password();
+
+		var new_password = $('#new_password').val();
+		var confirm_password = $('#confirm_password').val();
+
+		if(!new_password || !confirm_password)
+			build_message_box('messagebox_1', "Please complete the fields!", 'danger');
+		else if (new_password !== confirm_password)
+			build_message_box('messagebox_1', "Passwords do not match!", 'danger');
+		else if (new_password.length <= 7 || confirm_password.length <= 7)
+			build_message_box('messagebox_1', "Passwords must have have 7 characters minimum!", 'danger');
+		else
+			update_password();
 	});
 
 	$('#update_profile').click(function(){
@@ -24,12 +35,12 @@ function select_data() {
 		dataType: 'JSON',
 		data: 'data=' + JSON.stringify(arr),
 		success: function(response) {
-			$('#first_name').val(response.first_name);
-			$('#last_name').val(response.last_name);
-			$('#address').val(response.address);
-			$('#contact_number').val(response.contact_number);
-			$('#email_address').val(response.email_address);
-			$('#website').val(response.website);
+			$('#first_name').val(response.data.first_name);
+			$('#last_name').val(response.data.last_name);
+			$('#address').val(response.data.address);
+			$('#contact_number').val(response.data.contact_number);
+			$('#email_address').val(response.data.email_address);
+			$('#website').val(response.data.website);
 		}       
 	});
 

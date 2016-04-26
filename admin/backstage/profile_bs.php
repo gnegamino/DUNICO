@@ -35,31 +35,20 @@
 								"website" => $row['website']
 							);
 
-			echo json_encode($dataSet);
+			$response['data'] = $dataSet;
 			break;
 
 		case 'update_password':
-			if($new_password != $confirm_password)
-			{
-				$response['error'] = 'Passwords do not match!';
-			}
-			elseif(empty($new_password) || empty($confirm_password))
-			{
-				$response['error'] = 'Please complete the fields!';
-			}
-			else
-			{
-				$sql = "UPDATE 
-					`db_dunico`.`users` 
-				SET 
-					`pass_word`= '$new_password' 
-				WHERE 
-					`user_id`= $user_id";
 
-			 	$result = mysqli_query($conn, $sql);
-			}
+			$sql = "UPDATE 
+				`db_dunico`.`users` 
+			SET 
+				`pass_word`= '$new_password' 
+			WHERE 
+				`user_id`= $user_id";
 
-			echo json_encode($response);
+		 	$result = mysqli_query($conn, $sql);
+			
 			break;
 
 		case 'update_profile':
@@ -78,12 +67,13 @@
 
 		 	$result = mysqli_query($conn, $sql);
 		 	
-			echo json_encode($response);
 			break;
 		
 		default:
 			$response['error'] = 'Invalid arguments!';
 			break;
 	}
+
+	echo json_encode($response);
 	
 ?>
