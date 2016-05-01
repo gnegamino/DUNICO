@@ -39,6 +39,14 @@ body{
 	position: relative;
 	background: initial;
 }
+@media (min-width: 1200px){
+	.container.wide{
+		width: 1250px;
+	}
+}
+select option{
+	color: #222;
+}
 .seamless,
 .seamless-bg{
 	background-image: url(../img/seamlesscarbon.png);
@@ -582,6 +590,7 @@ h2{
 }
 .a-maincontent{
 	padding: 15px;
+	margin-bottom: 15px;
 }
 .a-maincontent .heading-title{
 	font-size: 24px;
@@ -629,4 +638,53 @@ textarea{
 
 #change_password .modal-dialog{
 	width: 339px;
+}
+
+/*TABLE DESIGN*/
+.tbl-design table{
+	border: 1px #fff solid;
+}
+.tbl-design table td{
+	padding: 7px;
+}
+.tbl-design .tableheader{
+	background: #fff;
+	text-shadow: none;
+}
+.tbl-design .tableheader td{
+	color: #222;
+	font-family: Lato-Regular;
+}
+.tbl-design .tablerow td{
+	vertical-align: top;
+}
+.tbl-design .tablerow:hover{
+	background: #c98134;
+	cursor: pointer;
+}
+.tdprojectdescription{
+	width: 420px;
+}
+.form-control.inline{
+	width: auto;
+	display: inline-block;
+}
+#preview{
+	margin-top: -15px;
+	margin-left: -15px;
+	float: left;
+	width: 100%;
+}
+.a-project-image{
+	margin-top: 15px;
+	margin-left: 15px;
+	float: left;
+	border: 1px #222 solid;
+	box-shadow: #222 0px 3px 4px;
+	padding: 6px;
+	background: #fff;
+}
+.a-project-image img{
+	width: 178px;
+	height: 140.5px;
 }

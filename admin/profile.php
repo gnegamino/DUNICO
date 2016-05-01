@@ -83,11 +83,11 @@
 				<table class="tbl-layout">
 					<tr>
 						<td>New Password:</td>
-						<td><input type="text" id="new_password" class="form-control"></td>
+						<td><input type="password" id="new_password" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>Confirm Password:</td>
-						<td><input type="text" id="confirm_password" class="form-control"></td>
+						<td><input type="password" id="confirm_password" class="form-control"></td>
 					</tr>
 				</table>
 			</div>

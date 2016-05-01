@@ -13,7 +13,7 @@
 				<div id="messagebox"></div>
 				<input id="username" type="text" class="form-control" placeholder="Username">
 				<input id="password" type="password" class="form-control" placeholder="Password">
-				<button id="login" class="btn btn-primary form-control">LOGIN</button>
+				<input id="login" type="submit" class="btn btn-primary form-control" value="LOGIN">
 			</div>
 		</div>
 	</body>
