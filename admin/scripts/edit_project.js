@@ -3,6 +3,32 @@ var backstage = "../admin/backstage/edit_project_bs.php";
 $(function(){
 	select_data();
 	image_preview();
+
+	$('#temp-images').change(function(){
+
+		var arr = {
+			fnc : 'select_data'
+		};
+
+		$("#upload-images").ajaxForm({
+			type: 'POST',
+			dataType: 'JSON',
+            success: function(response){
+            	var preview = '', x;
+
+            	for(x in response.data){
+					preview += '<div class="a-project-image">';
+					preview += '<img src="../arch/'+ response.data[x].image_name +'">';
+					preview += '</div>';
+            	}
+
+            	$('#to_be_uploaded').append(preview);
+            }
+        }).submit();
+	});
+
+	$('#update_project').click(function(){
+	});
 });
 
 function select_data() {
@@ -54,3 +80,4 @@ function image_preview() {
 		}       
 	});
 }
+

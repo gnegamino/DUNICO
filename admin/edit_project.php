@@ -54,13 +54,29 @@
 						</table>
 					</div>
 					<div class="content-split">
-						<div class="heading-title">
+						<div class="heading-title pull-left">
 							Images Preview
 						</div>
 					</div>
 					<div id="messagebox_1" class="content-split"></div>
-					<div class="content-split">
+					<div class="content-split clearfix">
 						<div id="preview"></div>
+					</div>
+					<div class="content-split clearfix">
+						<div class="heading-title pull-left">
+							Images to be uploaded
+						</div>
+						<div class="pull-right">
+							<form id="upload-images" action="backstage/upload_bs.php" method="post" enctype="multipart/form-data">
+								<table class="tbl-layout">
+									<tr>
+										<td>Upload images:</td>
+										<td><input type="file" id="temp-images" name="project_images[]" multiple></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div id="to_be_uploaded"></div>
 					</div>
 					<div class="content-split pull-right">
 						<input type="submit" id="update_project" class="btn btn-success" value="Update changes">

@@ -669,9 +669,11 @@ textarea{
 	width: auto;
 	display: inline-block;
 }
-#preview{
+#preview,
+#to_be_uploaded{
 	margin-top: -15px;
 	margin-left: -15px;
+	margin-bottom: 15px;
 	float: left;
 	width: 100%;
 }
@@ -685,6 +687,6 @@ textarea{
 	background: #fff;
 }
 .a-project-image img{
-	width: 178px;
+	width: 174px;
 	height: 140.5px;
 }
