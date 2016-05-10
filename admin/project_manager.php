@@ -37,6 +37,7 @@
 							<input type="submit" class="btn btn-info" id="activate_selected" value="Activate Selected">
 							<input type="submit" class="btn btn-warning" id="deactivate_selected" value="Deactivate Selected">
 							<input type="submit" class="btn btn-danger" id="delete_selected" value="Delete Selected">
+							<input type="submit" class="btn btn-default" id="show_archive" value="View Archived Projects">
 						</div>
 						<div class="pull-right">
 							Sort by: 
