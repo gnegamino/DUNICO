@@ -72,7 +72,15 @@
 
 		case 'update_project':
 			foreach ($arr_uploadimages as $key => $value) {
-				echo $value;
+				$sql = "INSERT INTO 
+							`db_dunico`.`project_images` 
+							(`project_id`, `filename`) 
+						VALUES 
+							($project_id, '$value')";
+
+		 		mysqli_query($conn, $sql);
+
+		 		echo $value;
 			}
 			break;
 
