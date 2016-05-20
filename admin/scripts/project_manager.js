@@ -18,7 +18,11 @@ $(function(){
 
 	$("#sort").change(function(){
 		var sort = $(this).val();
-		select_data(sort);
+
+		if($('#sort_status').val() == 'archived')
+			select_archive(sort);
+		else
+			select_data(sort);
 	});
 
 	$("#activate_selected, #deactivate_selected, #delete_selected").click(function(){
@@ -58,6 +62,8 @@ $(function(){
 	});
 
 	$('#show_archive').click(function(){
+		$(this).val('View Active Projects');
+		$('#sort_status').val('archived');
 		select_archive('name');
 	});
 });

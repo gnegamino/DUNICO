@@ -28,6 +28,30 @@ $(function(){
 	});
 
 	$('#update_project').click(function(){
+		var arr = [];
+
+		$('#to_be_uploaded img').each(function(){
+			arr.push($(this).attr('src'));
+		});
+
+		var request = {
+			fnc : 'update_project',
+			project_name : $('#project_name').val(),
+			project_description : $('#project_description').val(),
+			category_name : encodeURIComponent($('#category_name').val()),
+			year_established : $('#year_established').val(),
+			arr_uploadimages : arr
+		};
+
+		$.ajax(backstage, {
+			type: 'POST',
+			dataType: 'JSON',
+			data: 'data=' + JSON.stringify(request),
+			success: function(response) {
+
+			}  
+		});
+
 	});
 });
 

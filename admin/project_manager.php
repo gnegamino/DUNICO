@@ -49,6 +49,7 @@
 						</div>
 					</div>
 					<div class="content-split">
+						<input id="sort_status" type="hidden" value="undeleted">
 						<div id="tbl" class="tbl-design">
 							<table></table>
 						</div>

@@ -70,6 +70,12 @@
 			
 			break;
 
+		case 'update_project':
+			foreach ($arr_uploadimages as $key => $value) {
+				echo $value;
+			}
+			break;
+
 		default:
 			$response['error'] = 'Invalid arguments!';
 			break;
