@@ -28,10 +28,13 @@ $(function(){
 	});
 
 	$('#update_project').click(function(){
+
+		
 		var arr = [];
 
 		$('#to_be_uploaded img').each(function(){
-			arr.push($(this).attr('src'));
+			var imgSrc = $(this).attr('src').replace('../arch/','');
+			arr.push(imgSrc);
 		});
 
 		var request = {
