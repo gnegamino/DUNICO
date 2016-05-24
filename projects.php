@@ -16,7 +16,7 @@
 			<div class="row">
 				<div class="pull-left">
 					<div class="p-sidebar">
-						<ul>
+						<ul id="project_category">
 							<li class="active"><a href="#">HOSPITALITY & RESIDENTIAL</a></li>
 							<li><a href="#">CORPORATE</a></li>
 							<li><a href="#">ARCHITECTURAL</a></li>
@@ -24,9 +24,9 @@
 					</div>
 				</div>
 				<div class="pull-right">
-					<div class="p-container clearfix">
+					<div id="project_gallery" class="p-container clearfix">
 						<?php for ($i=0; $i < 3; $i++) { ?>
-						<a href="project_detail.php">
+						<!-- <a href="project_detail.php">
 							<div class="p-image">
 								<img src="arch/1.jpg">
 								<div class="p-caption">Corporate Example Example</div>
@@ -73,7 +73,7 @@
 								<img src="arch/8.jpg">
 								<div class="p-caption">Corporate Example Example</div>
 							</div>
-						</a>
+						</a> -->
 						<?php } ?>
 					</div>
 				</div>
