@@ -38,12 +38,13 @@ function select_data() {
 				projectGallery += '<div class="p-image">';
 			}
 
-			<a href="project_detail.php">
-					<div class="p-image">
-						<img src="arch/1.jpg">
-						<div class="p-caption">Corporate Example Example</div>
-					</div>
-				</a>
+			// <a href="project_detail.php">
+			// 	<div class="p-image">
+			// 		<img src="arch/1.jpg">
+			// 		<div class="p-caption">Corporate Example Example</div>
+			// 	</div>
+			// </a>
+			// get_project_images(response.data.);
 			$('#project_category').html(projectCategory);
 
 
@@ -51,3 +52,7 @@ function select_data() {
 	});
 
 }
+
+// function get_project_images(arr_response){
+
+// }
