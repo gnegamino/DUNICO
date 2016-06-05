@@ -1,6 +1,5 @@
 <?php
 	require_once("../connect.php");
-
 	$post_data 	= array();
 	$fnc 		= '';
 
@@ -10,26 +9,7 @@
 	$response['error'] = '';
 	
 	switch ($fnc) {
-		case 'get_category':
-			$sql = "SELECT category_id, category_name FROM db_dunico.projects_category";
-
-		 	$result = mysqli_query($conn, $sql);
-		 	$i = 0;
-
-			while ($row = mysqli_fetch_assoc($result)) 
-			{
-				$dataSet[$i] = array(
-										'category_id' => $row['category_id'],
-										'category_name' => $row['category_name']
-									);
-				$i++;
-			};
-
-			$response['category'] = $dataSet;
-			break; 
-
-		case 'get_projects':
-
+		case 'get_project_detail':
 
 			$sql = "SELECT 
 					    project_id,
@@ -39,7 +19,7 @@
 					FROM
 					    db_dunico.projects AS P
 					WHERE
-						category_id = $category_id";
+						project_id = $project_id";
 
 		 	$result = mysqli_query($conn, $sql);
 			$i = 0;
@@ -55,20 +35,18 @@
 				$i++;
 			};
 
-			// Get Project Images
 			$response['projects'] = $dataSet;
+			break;
+
+		case 'get_project_images':
 
 			$sql = "SELECT 
 						filename 
 					FROM 	
-						db_dunico.projects AS P
-					LEFT JOIN 
 						db_dunico.project_images AS PI
-					ON 
-						P.project_id = PI.project_id 
 					WHERE 
-						P.category_id = $category_id
-					LIMIT 1";
+						PI.project_id = $project_id
+					";
 
 		 	$result = mysqli_query($conn, $sql);
 			$i = 0;
@@ -82,6 +60,36 @@
 			};
 
 			$response['project_images'] = $dataSet;
+			break;
+
+		case 'get_next_project':
+
+			$sql = "SELECT 
+					    project_id,
+					    project_name,
+					    project_description,
+					    year_established
+					FROM
+					    db_dunico.projects AS P
+					WHERE
+						project_id > $project_id
+					LIMIT 1";
+
+		 	$result = mysqli_query($conn, $sql);
+			$i = 0;
+
+			while ($row = mysqli_fetch_assoc($result)) 
+			{
+				$dataSet[$i] = array(
+									'project_id' => $row['project_id'],
+									'project_name' => $row['project_name'],
+									'project_description' => $row['project_description'],
+									'year_established' => $row['year_established']
+								);
+				$i++;
+			};
+
+			$response['projects'] = $dataSet;
 			break;
 		default:
 			$response['error'] = 'Invalid arguments!';

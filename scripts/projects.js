@@ -2,23 +2,32 @@ var backstage = "../backstage/projects_bs.php";
 
 $(function(){
 
-	$("#projects .p-container .p-image", this).mouseover(function(){
-		$(this).css("opacity", "1");
-		$(".p-caption", this).show();
-	}).mouseout(function(){
-		$(this).css("opacity", "0.8");
-		$(".p-caption", this).hide();
-	}).stop();
+	get_category();
+	get_projects(1);
 
-	select_data();
 
+	$('#project_category').on('click', 'a', function(){
+		var category_id = $(this).attr('data-category-id');
+		get_projects(category_id);
+	});
+
+	$("#project_gallery").on({
+	    mouseenter: function() {
+	        $(this).css("opacity", "1");
+			$(".p-caption", this).show();
+	    },
+	    mouseleave: function() {
+	        $(this).css("opacity", "0.8");
+			$(".p-caption", this).hide();
+	    }
+	}, ".p-image");
 });
 
 
-function select_data() {
+function get_category() {
 
 	var arr = {
-		fnc : 'select_data'
+		fnc : 'get_category'
 	};
 
 	$.ajax(backstage, {
@@ -30,29 +39,40 @@ function select_data() {
 			var projectCategory = '',
 				projectGallery = '';
 
-			for(x in response.data)
+			for(x in response.category)
 			{
-				projectCategory += '<li><a href=""#>' + response.data[x].category_name + '</a></li>'; // Project Category
-				projectGallery += '<a href="project_detail.php"><div class="p-image">';
-				projectGallery += '<img src=';
-				projectGallery += '<div class="p-image">';
+				projectCategory += '<li><a data-category-id="' + response.category[x].category_id + '" href="#">' + response.category[x].category_name + '</a></li>'; // Project Category
+
 			}
 
-			// <a href="project_detail.php">
-			// 	<div class="p-image">
-			// 		<img src="arch/1.jpg">
-			// 		<div class="p-caption">Corporate Example Example</div>
-			// 	</div>
-			// </a>
-			// get_project_images(response.data.);
 			$('#project_category').html(projectCategory);
-
-
 		}       
 	});
-
 }
 
-// function get_project_images(arr_response){
+function get_projects(category_id)
+{
+	var arr = {
+		fnc : 'get_projects',
+		category_id : category_id
+	};
 
-// }
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+
+			var projectGallery = '';
+
+			for(x in response.projects)
+			{
+				projectGallery += '<a href="project_detail.php?project_id=' + response.projects[x].project_id + '"><div class="p-image">';
+				projectGallery += '<img src="arch/' + response.project_images[x].filename + '"/>';
+				projectGallery += '<div class="p-caption">' + response.projects[x].project_name + '</div></div></a>';
+			}
+
+			$('#project_gallery').html(projectGallery);
+		}       
+	});
+}
