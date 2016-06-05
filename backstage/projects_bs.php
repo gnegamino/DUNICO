@@ -28,9 +28,24 @@
 			$response['category'] = $dataSet;
 			break; 
 
+		case 'get_year':
+			$sql = "SELECT DISTINCT year_established FROM db_dunico.projects";
+
+		 	$result = mysqli_query($conn, $sql);
+		 	$i = 0;
+
+			while ($row = mysqli_fetch_assoc($result)) 
+			{
+				$dataSet[$i] = array(
+										'year_established' => $row['year_established']
+									);
+				$i++;
+			};
+
+			$response['year_established'] = $dataSet;
+			break;
+
 		case 'get_projects':
-
-
 			$sql = "SELECT 
 					    project_id,
 					    project_name,

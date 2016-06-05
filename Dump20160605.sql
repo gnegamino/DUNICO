@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `project_images`;
 CREATE TABLE `project_images` (
   `image_id` int(5) NOT NULL,
   `project_id` int(5) DEFAULT NULL,
+  `category_id` int(5) DEFAULT NULL,
   `filename` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`image_id`),
   UNIQUE KEY `image_id_UNIQUE` (`image_id`)
@@ -37,7 +38,7 @@ CREATE TABLE `project_images` (
 
 LOCK TABLES `project_images` WRITE;
 /*!40000 ALTER TABLE `project_images` DISABLE KEYS */;
-INSERT INTO `project_images` VALUES (1,1,'16F RECEPTION.jpg'),(2,1,'BOARD ROOM R1.jpg'),(3,1,'EXECUTIVE BOARDROOM.jpg');
+INSERT INTO `project_images` VALUES (0,1,1,'CUSTOMER SERVICE AREA.jpg'),(1,1,1,'16F RECEPTION.jpg'),(2,2,2,'BOARD ROOM R1.jpg'),(3,3,3,'EXECUTIVE BOARDROOM.jpg');
 /*!40000 ALTER TABLE `project_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +96,7 @@ CREATE TABLE `projects_category` (
 
 LOCK TABLES `projects_category` WRITE;
 /*!40000 ALTER TABLE `projects_category` DISABLE KEYS */;
-INSERT INTO `projects_category` VALUES (1,'Hospitality & Residential'),(2,'Corporate'),(3,'Architecture');
+INSERT INTO `projects_category` VALUES (1,'Hospitality & Residential'),(2,'Corporate'),(3,'Architecture'),(4,'Summer');
 /*!40000 ALTER TABLE `projects_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,4 +140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-20  9:24:47
+-- Dump completed on 2016-06-05 22:22:23

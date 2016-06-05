@@ -5,7 +5,6 @@ $(function(){
 	get_category();
 	get_projects(1);
 
-
 	$('#project_category').on('click', 'a', function(){
 		var category_id = $(this).attr('data-category-id');
 		get_projects(category_id);
@@ -21,6 +20,11 @@ $(function(){
 			$(".p-caption", this).hide();
 	    }
 	}, ".p-image");
+
+	$("#by_year").click(function(){
+		get_year();
+	});
+
 });
 
 
@@ -36,16 +40,38 @@ function get_category() {
 		data: 'data=' + JSON.stringify(arr),
 		success: function(response) {
 
-			var projectCategory = '',
-				projectGallery = '';
+			var projectCategory = '';
 
 			for(x in response.category)
 			{
 				projectCategory += '<li><a data-category-id="' + response.category[x].category_id + '" href="#">' + response.category[x].category_name + '</a></li>'; // Project Category
-
 			}
 
 			$('#project_category').html(projectCategory);
+		}       
+	});
+}
+
+function get_year() {
+
+	var arr = {
+		fnc : 'get_year'
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+
+			var projectYearEstablished = '';
+
+			for(x in response.year_established)
+			{
+				projectYearEstablished += '<li><a data-year="' + response.year_established[x].year_established + '" href="#">' + response.year_established[x].year_established + '</a></li>'; // Project Category
+			}
+
+			$('#project_category').html(projectYearEstablished);
 		}       
 	});
 }

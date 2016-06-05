@@ -8,8 +8,8 @@
 	  			<div class="col-md-12">
 	  				<h2 class="pull-left">OUR PROJECTS</h2>
 	  				<ol class="pull-right breadcrumb">
-	  					<li class="active"><a href="#">BY THEME</a></li>
-	  					<li><a href="#">BY YEAR</a></li>
+	  					<li id="by_theme" class="active"><a href="#">BY THEME</a></li>
+	  					<li id="by_year"><a href="#">BY YEAR</a></li>
 	  				</ol>
 	  			</div>
 	  		</div>
