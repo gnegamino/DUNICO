@@ -23,6 +23,14 @@ $(function(){
 	get_project_detail();
 	get_project_images();
 
+	$('.carousel-inner').click(function(){
+		var imageCount = $('.carousel-inner .item').length;
+		if(imageCount == 1)
+			$(".backdrop").fadeIn();
+		else
+			return;
+	});
+
 });
 
 function get_project_detail()
@@ -80,35 +88,15 @@ function get_project_images()
 				carouselInner += '<img src="arch/'+ response.project_images[x].filename +'"/><div class="carousel-caption"></div></div>';
 			}
 
-
+			if(response.project_images.length == 1)
+				$('#featured .carousel-control').hide();
+			
 			$('#featured .carousel-indicators').html(carouselIndicators);
 			$('#featured .carousel-inner').html(carouselInner);
 			$('#featured .carousel-indicators li:first-child').addClass('active');
 			$('#featured .carousel-inner .item:first-child').addClass('active');
 
 			$('#featured').carousel();
-		}       
-	});
-}
-
-function get_next_project()
-{
-	var arr = {
-		fnc : 'get_next_project',
-		project_id : $("#project_id").val()
-	};
-
-	$.ajax(backstage, {
-		type: 'POST',
-		dataType: 'JSON',
-		data: 'data=' + JSON.stringify(arr),
-		success: function(response) {
-			for(x in response.next_project)
-			{
-				var project_id = response.next_project[x].project_id;
-			}
-
-			window.location.href = "project_detail.php?project_id=" + project_id;
 		}       
 	});
 }
@@ -129,7 +117,30 @@ function get_previous_project()
 			{
 				var project_id = response.previous_project[x].project_id;
 			}
+			
+			console.log(project_id);
+			window.location.href = "project_detail.php?project_id=" + project_id;
+		}       
+	});
+}
 
+function get_next_project()
+{
+	var arr = {
+		fnc : 'get_next_project',
+		project_id : $("#project_id").val()
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			for(x in response.next_project)
+			{
+				var project_id = response.next_project[x].project_id;
+			}
+			console.log(project_id);
 			window.location.href = "project_detail.php?project_id=" + project_id;
 		}       
 	});

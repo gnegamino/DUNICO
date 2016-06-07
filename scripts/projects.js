@@ -3,11 +3,15 @@ var backstage = "../backstage/projects_bs.php";
 $(function(){
 
 	get_category();
-	get_projects(1);
 
 	$('#project_category').on('click', 'a', function(){
-		var category_id = $(this).attr('data-category-id');
-		get_projects(category_id);
+		$('#project_category li').removeClass();
+		$(this).closest('li').addClass('active');
+
+		if(($(this).attr('data-category-id') == undefined))
+			get_projects(null, $(this).attr('data-year'));
+		else
+			get_projects($(this).attr('data-category-id'), null);
 	});
 
 	$("#project_gallery").on({
@@ -21,15 +25,22 @@ $(function(){
 	    }
 	}, ".p-image");
 
+	$("#by_theme").click(function(){
+		get_category();
+		$("#by_year").removeClass();
+		$("#by_theme").addClass('active');
+	});
+
 	$("#by_year").click(function(){
 		get_year();
+		$("#by_theme").removeClass();
+		$("#by_year").addClass('active');
 	});
 
 });
 
-
-function get_category() {
-
+function get_category()
+{
 	var arr = {
 		fnc : 'get_category'
 	};
@@ -48,8 +59,14 @@ function get_category() {
 			}
 
 			$('#project_category').html(projectCategory);
+
+			var firstCategory = $('#project_category li:first-child a');
+			firstCategory.closest('li').addClass("active");
+			get_projects(firstCategory.attr('data-category-id'), null);
 		}       
 	});
+
+
 }
 
 function get_year() {
@@ -72,15 +89,19 @@ function get_year() {
 			}
 
 			$('#project_category').html(projectYearEstablished);
+			var firstYear = $('#project_category li:first-child a');
+			firstYear.closest('li').addClass("active");
+			get_projects(null, firstYear.attr('data-year'));
 		}       
 	});
 }
 
-function get_projects(category_id)
+function get_projects(category_id, year_established)
 {
 	var arr = {
 		fnc : 'get_projects',
-		category_id : category_id
+		category_id : (category_id == null) ? null : category_id, 
+		year_established : (year_established == null) ? null : year_established, 
 	};
 
 	$.ajax(backstage, {
@@ -94,7 +115,7 @@ function get_projects(category_id)
 			for(x in response.projects)
 			{
 				projectGallery += '<a href="project_detail.php?project_id=' + response.projects[x].project_id + '"><div class="p-image">';
-				projectGallery += '<img src="arch/' + response.project_images[x].filename + '"/>';
+				projectGallery += '<img src="arch/' + response.projects[x].filename + '"/>';
 				projectGallery += '<div class="p-caption">' + response.projects[x].project_name + '</div></div></a>';
 			}
 

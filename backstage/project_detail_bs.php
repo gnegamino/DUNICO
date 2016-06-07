@@ -12,14 +12,14 @@
 		case 'get_project_detail':
 
 			$sql = "SELECT 
-					    project_id,
-					    project_name,
-					    project_description,
-					    year_established
+					    P.`project_id`,
+					    P.`project_name`,
+					    P.`project_description`,
+					    P.`year_established`
 					FROM
-					    db_dunico.projects AS P
+					    projects AS P
 					WHERE
-						project_id = $project_id";
+						`project_id` = $project_id";
 
 		 	$result = mysqli_query($conn, $sql);
 			$i = 0;
@@ -63,18 +63,54 @@
 			break;
 
 		case 'get_previous_project':
-
 			$sql = "SELECT 
-					    project_id
+					    P.`project_id`
 					FROM
-					    db_dunico.projects AS P
+					    projects AS P
 					WHERE
-						project_id < $project_id
+						P.`project_id` < $project_id
+					ORDER BY 
+						P.`project_id` DESC
 					LIMIT 1";
 
 		 	$result = mysqli_query($conn, $sql);
 			$i = 0;
 
+			if(mysqli_num_rows($result) == 0){
+
+				$sql = "SELECT 
+							P.`project_id`
+						FROM
+							db_dunico.projects AS P
+						ORDER BY 
+							P.`project_id` DESC
+						LIMIT 1";
+
+			 	$result = mysqli_query($conn, $sql);
+				$i = 0;
+
+				while ($row = mysqli_fetch_assoc($result)) 
+				{
+					$dataSet[$i] = array(
+										'project_id' => $row['project_id']
+									);
+					$i++;
+				};
+
+				$response['previous_project'] = $dataSet;
+
+			}else{
+
+				while ($row = mysqli_fetch_assoc($result)) 
+				{
+					$dataSet[$i] = array(
+										'project_id' => $row['project_id']
+									);
+					$i++;
+				};
+
+				$response['previous_project'] = $dataSet;
+			}
 			while ($row = mysqli_fetch_assoc($result)) 
 			{
 				$dataSet[$i] = array(
@@ -89,25 +125,54 @@
 		case 'get_next_project':
 
 			$sql = "SELECT 
-					    project_id
+					    P.`project_id`
 					FROM
-					    db_dunico.projects AS P
+					    projects AS P
 					WHERE
-						project_id > $project_id
+						P.`project_id` > $project_id
+					ORDER BY 
+						P.`project_id` ASC
 					LIMIT 1";
 
 		 	$result = mysqli_query($conn, $sql);
 			$i = 0;
 
-			while ($row = mysqli_fetch_assoc($result)) 
-			{
-				$dataSet[$i] = array(
-									'project_id' => $row['project_id']
-								);
-				$i++;
-			};
+			if(mysqli_num_rows($result) == 0){
 
-			$response['next_project'] = $dataSet;
+				$sql = "SELECT 
+					    P.`project_id`
+					FROM
+					    projects AS P
+					ORDER BY 
+						P.`project_id` ASC
+					LIMIT 1";
+
+			 	$result = mysqli_query($conn, $sql);
+				$i = 0;
+
+				while ($row = mysqli_fetch_assoc($result)) 
+				{
+					$dataSet[$i] = array(
+										'project_id' => $row['project_id']
+									);
+					$i++;
+				};
+
+				$response['next_project'] = $dataSet;
+
+			}else{
+
+				while ($row = mysqli_fetch_assoc($result)) 
+				{
+					$dataSet[$i] = array(
+										'project_id' => $row['project_id']
+									);
+					$i++;
+				};
+
+				$response['next_project'] = $dataSet;
+			}
+
 			break;
 		default:
 			$response['error'] = 'Invalid arguments!';
