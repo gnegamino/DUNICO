@@ -23,13 +23,12 @@ DROP TABLE IF EXISTS `project_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `project_images` (
-  `image_id` int(5) NOT NULL,
+  `image_id` int(5) NOT NULL AUTO_INCREMENT,
   `project_id` int(5) DEFAULT NULL,
-  `category_id` int(5) DEFAULT NULL,
   `filename` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`image_id`),
   UNIQUE KEY `image_id_UNIQUE` (`image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +37,7 @@ CREATE TABLE `project_images` (
 
 LOCK TABLES `project_images` WRITE;
 /*!40000 ALTER TABLE `project_images` DISABLE KEYS */;
-INSERT INTO `project_images` VALUES (0,1,1,'CUSTOMER SERVICE AREA.jpg'),(1,1,1,'16F RECEPTION.jpg'),(2,2,2,'BOARD ROOM R1.jpg'),(3,3,3,'EXECUTIVE BOARDROOM.jpg');
+INSERT INTO `project_images` VALUES (1,1,'CUSTOMER SERVICE AREA.jpg'),(2,1,'16F RECEPTION.jpg'),(3,2,'BOARD ROOM R1.jpg'),(4,3,'EXECUTIVE BOARDROOM.jpg'),(5,4,'EXECUTIVE PANTRY.jpg'),(6,4,'HSJR DRESSING AREA.jpg');
 /*!40000 ALTER TABLE `project_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +61,7 @@ CREATE TABLE `projects` (
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`project_id`),
   UNIQUE KEY `project_id_UNIQUE` (`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +70,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,1,'ISLA PANDAN RESORT, Palawan','Isla Pandan Resort is one of the busiest Island at Honda Bay, Palawan that rejuvenated with modern tropical design using indigenous materials such as bamboo. The design aim is to create a magical and fantasy experience to customer and captured the middle ',0,0,1,1,2015,'0000-00-00 00:00:00'),(2,1,'SMDC HQ OFFICE, Philippines','The biggest property developer in the Philippines, These new office consolidation caters for more than 5000 staff with a massive floor area of 20,000 square meter. Design is  modern sleek office that represents companies corporate image and prestige as th',0,0,1,2,2015,'0000-00-00 00:00:00'),(3,1,'YAHOO HQ OFFICE, Singapore','Young, vibrant and fun concept was main driver of creativity for the new Headquarter of Yahoo in Asia. Innovative workplace solution was created to encourage collaboration among staff for more productive working environment.',0,0,0,3,2015,'0000-00-00 00:00:00');
+INSERT INTO `projects` VALUES (1,1,'ISLA PANDAN RESORT, Palawan','Isla Pandan Resort is one of the busiest Island at Honda Bay, Palawan that rejuvenated with modern tropical design using indigenous materials such as bamboo. The design aim is to create a magical and fantasy experience to customer and captured the middle ',0,0,1,1,2015,'0000-00-00 00:00:00'),(2,1,'SMDC HQ OFFICE, Philippines','The biggest property developer in the Philippines, These new office consolidation caters for more than 5000 staff with a massive floor area of 20,000 square meter. Design is  modern sleek office that represents companies corporate image and prestige as th',0,0,1,2,2015,'0000-00-00 00:00:00'),(3,1,'YAHOO HQ OFFICE, Singapore','Young, vibrant and fun concept was main driver of creativity for the new Headquarter of Yahoo in Asia. Innovative workplace solution was created to encourage collaboration among staff for more productive working environment.',0,0,0,3,2015,'0000-00-00 00:00:00'),(4,1,'GRASS RESIDENCES','Tower 3',0,0,1,4,2016,NULL);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-05 22:22:23
+-- Dump completed on 2016-06-08  1:51:09
