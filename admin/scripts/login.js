@@ -22,8 +22,9 @@ $(function(){
 			success: function(response) {
 				clear_message_box();
 
-				if(response.error != '')
+				if(response.error != ''){
 					build_message_box('messagebox_1', response.error, 'danger');
+				}
 				else{
 					$("#messagebox_2").addClass('lblmsg success dark').html('Connected!').promise().done(function(){
 						window.location.href = "home.php";

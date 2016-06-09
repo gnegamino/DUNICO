@@ -2,12 +2,9 @@
 	session_start(); 
 	require_once("header.php"); 
 	require_once("check_session.php");
-	if(!isset($_GET['project_id']))
-		header("Location: login.php");
 	
 	$user_id = $_SESSION['user_id'];
 	$full_name = $_SESSION['full_name'];
-	$_SESSION['project_id'] = $_GET['project_id'];
 ?>
 <body class="admin">
 	<div class="container-fluid">
@@ -28,7 +25,7 @@
 			<div class="col-md-9">
 				<div class="a-maincontent clearfix">
 					<div class="heading-title">
-						Edit Project
+						Create New Project
 					</div>
 					<div class="content-split clearfix">
 						<table class="tbl-layout">
@@ -42,22 +39,13 @@
 							</tr>
 							<tr>
 								<td>Category:</td>
-								<td><input id="category_name" type="text" class="form-control"></td>
+								<td><select id="category_list" class="form-control"></select></td>
 							</tr>
 							<tr>
 								<td>Year established:</td>
 								<td><input id="year_established" type="text" class="form-control"></td>
 							</tr>
 						</table>
-					</div>
-					<div class="content-split">
-						<div class="heading-title pull-left">
-							Images Preview
-						</div>
-					</div>
-					<div id="messagebox_1" class="content-split"></div>
-					<div class="content-split clearfix">
-						<div id="preview"></div>
 					</div>
 					<div class="content-split clearfix">
 						<div class="heading-title pull-left">
@@ -76,7 +64,7 @@
 						<div id="to_be_uploaded"></div>
 					</div>
 					<div class="content-split pull-right">
-						<input type="submit" id="update_project" class="btn btn-success" value="Update changes">
+						<input type="submit" id="save_project" class="btn btn-success" value="Save changes">
 					</div>
 				</div>
 			</div>

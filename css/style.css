@@ -106,6 +106,9 @@ select option{
 	padding-left: 15px;
 	font-family: Lato-Regular;
 }
+.a-logo-lnk:hover{
+	text-decoration: none !important;
+}
 #navigation .navbar-header .navbar-brand span,
 .i-red{
 	color: #ff2828;
@@ -596,6 +599,14 @@ h2{
 	font-size: 24px;
 	font-family: Lato-Regular;
 	text-transform: uppercase;
+}
+.a-maincontent .a-secondary-title{
+	font-size: 16px;
+	background: #FFDC44;
+	color: #222;
+	text-transform: uppercase;
+	text-shadow: initial;
+	padding: 10px 15px;
 }
 .header-credentials{
 	border-bottom: 2px #fff solid;

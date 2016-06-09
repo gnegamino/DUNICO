@@ -25,6 +25,10 @@ $(function(){
 			select_data(sort);
 	});
 
+	$("#create_new_project").click(function(){
+		window.location.href = "create_new_project.php";
+	});
+
 	$("#activate_selected, #deactivate_selected, #delete_selected").click(function(){
 
 		var buttonMethod = '';

@@ -1,5 +1,6 @@
 <?php
-	$page_script = str_replace("admin/", "scripts/", str_replace(".php", ".js", substr($_SERVER['PHP_SELF'], 1)));
+	$page_script  = str_replace("admin/", "scripts/", str_replace(".php", ".js", substr($_SERVER['PHP_SELF'], 1)));
+	$current_page = str_replace("/admin/", "", $_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
 <html>

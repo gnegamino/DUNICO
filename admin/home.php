@@ -1,6 +1,7 @@
 <?php
-	require_once("header.php"); 
 	session_start(); 
+	require_once("header.php"); 
+	require_once("check_session.php");	
 	$user_id = $_SESSION['user_id'];
 	$full_name = $_SESSION['full_name'];
 ?>
@@ -15,17 +16,10 @@
 		</div>
 	</div>
 	<div class="container">
+		<?php require_once('templates/admin_sidebar_logo.php'); ?>
 		<div class="row">
 			<div class="col-md-3">
-				<div class="a-logo">D `UN<span class="i-red">I</span>CO</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="a-sidebar">
-					<a href="profile.php"><div>My Profile</div></a>
-					<a href="project_manager.php"><div>Project Manager</div></a>
-				</div>
+				<?php require_once('templates/admin_sidebar_menu.php'); ?>
 			</div>
 			<div class="col-md-9">
 				<div class="a-maincontent">
