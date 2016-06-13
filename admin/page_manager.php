@@ -23,13 +23,18 @@
 			</div>
 			<div class="col-md-9">
 				<div class="a-maincontent">
-					<div class="heading-title">
+					<div class="heading-title clearfix">
 						Page Manager
 					</div>
 					<div class="content-split">
 						<div class="row">
-							<div class="a-secondary-title">
-								Home Page
+							<div class="a-secondary-title clearfix">
+								<div class="pull-left">
+									Home Page
+								</div>
+								<div class="pull-right">
+									<input type="button" id="Save" class="btn btn-default" value="Save">
+								</div>
 							</div>
 						</div>
 						<div class="content-split">
@@ -38,7 +43,7 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px">Motto Panel Caption:</td>
-											<td width="400px"><input type="text" id="motto_caption" class="form-control"></td>
+											<td width="610px"><input type="text" id="motto_caption" class="form-control"></td>
 										</tr>
 										<tr>
 											<td valign="top">Motto Panel Content:</td>
@@ -61,7 +66,7 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px" valign="top">Our Services (Content):</td>
-											<td width="400px"><textarea id="our_services" class="form-control" rows="3"></textarea></td>
+											<td width="610px"><textarea id="our_services" class="form-control" rows="3"></textarea></td>
 										</tr>
 									</table>
 								</div>
@@ -80,7 +85,7 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px">Company Name:</td>
-											<td width="400px"><input type="text" id="company_name" class="form-control"></td>
+											<td width="610px"><input type="text" id="company_name" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>Founder:</td>
@@ -111,7 +116,7 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px">Contact Name:</td>
-											<td width="400px"><input type="text" id="contact_name" class="form-control"></td>
+											<td width="610px"><input type="text" id="contact_name" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>Contact No.:</td>

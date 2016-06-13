@@ -12,4 +12,5 @@
 	<script type="text/javascript" src="../js/jquery.form.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<?= $page_script; ?>"></script>
+	<script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
 </head>
