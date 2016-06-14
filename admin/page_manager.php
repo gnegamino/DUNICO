@@ -33,7 +33,8 @@
 									Home Page
 								</div>
 								<div class="pull-right">
-									<input type="button" class="btn btn-success save home" value="Save">
+									<input type="button" class="btn btn-success save home" value="Edit">
+									<input type="button" class="btn btn-danger" value="Cancel" disabled>
 								</div>
 							</div>
 						</div>
@@ -43,11 +44,11 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px">Motto Panel Caption:</td>
-											<td width="610px"><input type="text" id="motto_caption" class="form-control"></td>
+											<td width="610px"><input type="text" id="motto_caption" class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td valign="top">Motto Panel Content:</td>
-											<td><textarea id="motto_content" class="form-control" rows="3"></textarea></td>
+											<td><textarea id="motto_content" class="form-control mceEditor" rows="3"></textarea></td>
 										</tr>
 									</table>
 								</div>
@@ -61,7 +62,7 @@
 									Services Page
 								</div>
 								<div class="pull-right">
-									<input type="button" class="btn btn-success save services" value="Save">
+									<input type="button" class="btn btn-success save services" value="Edit">
 								</div>
 							</div>
 						</div>
@@ -71,7 +72,7 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px" valign="top">Our Services (Content):</td>
-											<td width="610px"><textarea id="our_services" class="form-control" rows="3"></textarea></td>
+											<td width="610px"><textarea id="our_services" class="form-control" disabled rows="3"></textarea></td>
 										</tr>
 									</table>
 								</div>
@@ -85,7 +86,7 @@
 									About Page
 								</div>
 								<div class="pull-right">
-									<input type="button" id="Save" class="btn btn-success" value="Save">
+									<input type="button" class="btn btn-success save about" value="Edit">
 								</div>
 							</div>
 						</div>
@@ -95,19 +96,19 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px">Company Name:</td>
-											<td width="610px"><input type="text" id="company_name" class="form-control"></td>
+											<td width="610px"><input type="text" id="company_name" class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td>Founder:</td>
-											<td><input type="text" id="founder_name" class="form-control"></td>
+											<td><input type="text" id="founder_name" class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td valign="top">Our Profile (Content):</td>
-											<td><textarea id="our_profile" class="form-control" rows="3"></textarea></td>
+											<td><textarea id="our_profile" class="form-control" disabled rows="3"></textarea></td>
 										</tr>
 										<tr>
 											<td valign="top">Our Founder (Content):</td>
-											<td><textarea id="our_founder" class="form-control" rows="3"></textarea></td>
+											<td><textarea id="our_founder" class="form-control" disabled rows="3"></textarea></td>
 										</tr>
 									</table>
 								</div>
@@ -121,7 +122,7 @@
 									Contact Information Page
 								</div>
 								<div class="pull-right">
-									<input type="button" id="Save" class="btn btn-success" value="Save">
+									<input type="button" class="btn btn-success save contact" value="Edit">
 								</div>
 							</div>
 						</div>
@@ -131,19 +132,19 @@
 									<table class="tbl-layout">
 										<tr>
 											<td width="200px">Contact Name:</td>
-											<td width="610px"><input type="text" id="contact_name" class="form-control"></td>
+											<td width="610px"><input type="text" id="contact_name" class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td>Contact No.:</td>
-											<td><input type="text" id="contact_no" class="form-control"></td>
+											<td><input type="text" id="contact_no" class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td>E-mail Address:</td>
-											<td><input type="text" id="email_address" class="form-control"></td>
+											<td><input type="text" id="email_address" class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td>Website URL:</td>
-											<td><input type="text" id="website" class="form-control"></td>
+											<td><input type="text" id="website" class="form-control" disabled></td>
 										</tr>
 									</table>
 								</div>
