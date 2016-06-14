@@ -601,12 +601,19 @@ h2{
 	text-transform: uppercase;
 }
 .a-maincontent .a-secondary-title{
-	font-size: 16px;
 	background: #FFDC44;
+	padding: 10px 15px;
+}
+.a-maincontent .a-secondary-title .pull-left{
+	font-size: 16px;
 	color: #222;
 	text-transform: uppercase;
 	text-shadow: initial;
-	padding: 10px 15px;
+}
+.a-maincontent .a-secondary-title .pull-right .btn{
+	text-transform: uppercase;
+	font-family: Lato-Bold;
+	padding: 3px 8px;
 }
 .header-credentials{
 	border-bottom: 2px #fff solid;

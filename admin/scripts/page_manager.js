@@ -11,8 +11,8 @@ $(function(){
 		]
 	});
 
-	$("#Save").on('click', '#motto_content', function(){
-		alert($('#motto_content').html());
+	$("#Save").click(function(){
+		tinyMCE.get('our_services').getContent({format : 'raw'});
 	});
 });
 

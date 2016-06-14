@@ -33,7 +33,7 @@
 									Home Page
 								</div>
 								<div class="pull-right">
-									<input type="button" id="Save" class="btn btn-default" value="Save">
+									<input type="button" class="btn btn-success save home" value="Save">
 								</div>
 							</div>
 						</div>
@@ -56,8 +56,13 @@
 					</div>
 					<div class="content-split">
 						<div class="row">
-							<div class="a-secondary-title">
-								Services Page
+							<div class="a-secondary-title clearfix">
+								<div class="pull-left">
+									Services Page
+								</div>
+								<div class="pull-right">
+									<input type="button" class="btn btn-success save services" value="Save">
+								</div>
 							</div>
 						</div>
 						<div class="content-split">
@@ -75,8 +80,13 @@
 					</div>
 					<div class="content-split">
 						<div class="row">
-							<div class="a-secondary-title">
-								About Page
+							<div class="a-secondary-title clearfix">
+								<div class="pull-left">
+									About Page
+								</div>
+								<div class="pull-right">
+									<input type="button" id="Save" class="btn btn-success" value="Save">
+								</div>
 							</div>
 						</div>
 						<div class="content-split">
@@ -106,8 +116,13 @@
 					</div>
 					<div class="content-split">
 						<div class="row">
-							<div class="a-secondary-title">
-								Contact Information Page
+							<div class="a-secondary-title clearfix">
+								<div class="pull-left">
+									Contact Information Page
+								</div>
+								<div class="pull-right">
+									<input type="button" id="Save" class="btn btn-success" value="Save">
+								</div>
 							</div>
 						</div>
 						<div class="content-split">
