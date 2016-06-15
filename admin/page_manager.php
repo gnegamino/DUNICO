@@ -33,7 +33,7 @@
 									Home Page
 								</div>
 								<div class="pull-right">
-									<input type="button" class="btn btn-success save home" value="Edit">
+									<input type="button" class="btn btn-success edit home" value="Edit">
 									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>
@@ -62,7 +62,7 @@
 									Services Page
 								</div>
 								<div class="pull-right">
-									<input type="button" class="btn btn-success save services" value="Edit">
+									<input type="button" class="btn btn-success edit services" value="Edit">
 									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>
@@ -87,7 +87,7 @@
 									About Page
 								</div>
 								<div class="pull-right">
-									<input type="button" class="btn btn-success save about" value="Edit">
+									<input type="button" class="btn btn-success edit about" value="Edit">
 									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>
@@ -124,7 +124,7 @@
 									Contact Information Page
 								</div>
 								<div class="pull-right">
-									<input type="button" class="btn btn-success save contact" value="Edit">
+									<input type="button" class="btn btn-success edit contact" value="Edit">
 									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>

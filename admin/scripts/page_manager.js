@@ -9,10 +9,11 @@ $(function(){
 	$('#our_profile').summernote('disable');
 	$('#our_founder').summernote('disable');
 
-	$('.save').click(function(){
+	$('.edit').click(function(){
 		var panelToEdit = $(this).attr('class').split(' ')[3];
 
 		$(this).val('Save');
+		$(this).removeClass('edit home').addClass('save home');
 
 		switch(panelToEdit){
 			case 'home':
@@ -33,6 +34,26 @@ $(function(){
 		$(this).closest('.content-split').find('input').attr('disabled', false);
 	});
 
+
+	$('.save').click(function(){
+		var panelToSave = $(this).attr('class').split(' ')[3];
+
+				alert();
+		switch(panelToSave){
+			case 'home':
+				break;
+
+			case 'services':
+				$('#our_services').summernote('enable');
+				break;
+
+			case 'about':
+				$('#our_profile').summernote('enable');
+				$('#our_founder').summernote('enable');
+				break;
+		}
+	});
+
 	$('.cancel').click(function(){
 		var panelToCancel = $(this).closest('.content-split').find('.btn-success').attr('class').split(' ')[3];
 		var textareaToDisable = "#" + $(this).closest('.content-split').find('textarea').attr('id');
@@ -44,12 +65,13 @@ $(function(){
 			break;
 
 			default:
-				$(this).attr('disabled', true);
-				$(this).closest('.pull-right').find('.btn-success').val('Edit');
-				$(this).closest('.content-split').find('input:text').attr('disabled', true);
 				$(textareaToDisable).summernote('disable');
 			break;
 		}
+
+		$(this).attr('disabled', true);
+		$(this).closest('.pull-right').find('.btn-success').val('Edit');
+		$(this).closest('.content-split').find('input:text').attr('disabled', true);
 	});
 });
 
