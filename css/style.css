@@ -18,13 +18,9 @@
 	font-family: Lato-Black;
 	src: url(../fonts/Lato-Black.ttf);
 }
-*{
-	font-family: Lato-Light;
-	color: #fff;
-}
-h1, h2, h3, p, a, div{
+/*h1, h2, h3, p, a, div{
 	text-shadow: #000000 1px 1px 2px;
-}
+}*/
 body.hidden-overflow{
 	overflow: hidden;
 }
@@ -38,6 +34,7 @@ body{
 	height: 100%;
 	position: relative;
 	background: initial;
+	font-family: Lato-Light !important;
 }
 @media (min-width: 1200px){
 	.container.wide{
@@ -129,6 +126,7 @@ select option{
 	font-size: 12px;
 	cursor: pointer;
 	z-index: 1500;
+	color: #fff;
 }
 #featured .carousel-inner img{
 	width: 100%;
@@ -152,6 +150,7 @@ select option{
 	z-index: 2;
 	background: rgba(8,8,8,0.6);
 	padding: 20px 25px;
+	color: #fff;
 }
 #featured .company-caption h1{
 	margin-top: 10px;
@@ -497,6 +496,7 @@ h2{
 	position: absolute;
 	top: 190px;
 	left: 120px;
+	color: #fff;
 }
 .featured-project h1{
 	font-size: 50px;
@@ -580,6 +580,7 @@ h2{
 	padding: 10px 12px;
 	font-size: 16px;
 	text-transform: uppercase;
+	color: #fff;
 }
 .a-sidebar a:hover div{
 	color: #222;
@@ -599,6 +600,7 @@ h2{
 	font-size: 24px;
 	font-family: Lato-Regular;
 	text-transform: uppercase;
+	color: #fff;
 }
 .a-maincontent .a-secondary-title{
 	background: #FFDC44;
@@ -620,9 +622,11 @@ h2{
 	background: rgba(8,8,8,0.6);
 	padding: 5px 8px;
 	font-size: 16px;
+	color: #fff;
 }
 .tbl-layout td{
 	padding: 3px;
+	color: #fff;
 }
 .marg.top{
 	margin-top: 15px;
@@ -675,6 +679,7 @@ textarea{
 }
 .tbl-design .tablerow td{
 	vertical-align: top;
+	color: #fff;
 }
 .tbl-design .tablerow:hover{
 	background: #c98134;
@@ -708,3 +713,5 @@ textarea{
 	width: 174px;
 	height: 140.5px;
 }
+
+/*SUMMERNOTE*/

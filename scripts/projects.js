@@ -1,4 +1,4 @@
-var backstage = "../backstage/page_manager_bs.php";
+var backstage = "../backstage/projects_bs.php";
 
 $(function(){
 

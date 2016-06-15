@@ -27,12 +27,20 @@
 						Project Manager
 					</div>
 					<div class="content-split">
-						Sort by: 
-						<select id="sort" class="form-control inline">
-							<option value="name">By project name</option>
-							<option value="category">By category</option>
-							<option value="year">By year established</option>
-						</select>					
+						<table class="tbl-layout">
+							<tr>
+								<td>Sort by:</td>
+								<td>
+									<select id="sort" class="form-control inline">
+										<option value="name">By project name</option>
+										<option value="category">By category</option>
+										<option value="year">By year established</option>
+									</select>	
+								</td>
+							</tr>
+						</table>
+						
+										
 					</div>
 					<div class="content-split clearfix">
 						<input type="submit" class="btn btn-primary" id="create_new_project" value="Create New Project">

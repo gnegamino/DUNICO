@@ -1,42 +1,57 @@
 var backstage = "../backstage/page_manager_bs.php";
 
 $(function(){
-	// tinymce.init({
-	// 	selector: 'textarea',
- //        editor_selector : "mceEditor",
-	// 	height: 50,
-	// 	toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify',
-	// 	content_css: [
-	// 		'//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-	// 		'//www.tinymce.com/css/codepen.min.css'
-	// 	]
-	// });
-	// disable_tinymce();
-	// tinymce.init({ selector: 'textarea' });
-	$(".save").click(function(){
+	$('textarea').summernote({
+		height: 250
+	});
+	$('#motto_content').summernote('disable');
+	$('#our_services').summernote('disable');
+	$('#our_profile').summernote('disable');
+	$('#our_founder').summernote('disable');
+
+	$('.save').click(function(){
 		var panelToEdit = $(this).attr('class').split(' ')[3];
+
+		$(this).val('Save');
 
 		switch(panelToEdit){
 			case 'home':
-				$(this).next().attr('disabled', false);
-				$(this).closest('.content-split').find('input').attr('disabled', false);
-				break; 
+				$('#motto_content').summernote('enable');
+				break;
+
+			case 'services':
+				$('#our_services').summernote('enable');
+				break;
+
+			case 'about':
+				$('#our_profile').summernote('enable');
+				$('#our_founder').summernote('enable');
+				break;
 		}
-		// enable_tinymce();
+
+		$(this).next().attr('disabled', false);
+		$(this).closest('.content-split').find('input').attr('disabled', false);
 	});
 
-	// $(".save.services").click(function(){
-	// 	disable_tinymce();
-	// });
+	$('.cancel').click(function(){
+		var panelToCancel = $(this).closest('.content-split').find('.btn-success').attr('class').split(' ')[3];
+		var textareaToDisable = "#" + $(this).closest('.content-split').find('textarea').attr('id');
+
+		switch(panelToCancel){
+			case 'about':
+				$('#our_profile').summernote('disable');
+				$('#our_founder').summernote('disable');
+			break;
+
+			default:
+				$(this).attr('disabled', true);
+				$(this).closest('.pull-right').find('.btn-success').val('Edit');
+				$(this).closest('.content-split').find('input:text').attr('disabled', true);
+				$(textareaToDisable).summernote('disable');
+			break;
+		}
+	});
 });
-
-
-function disable_tinymce() {
-  	tinymce.activeEditor.getBody().setAttribute('contenteditable', false);
-}
-function enable_tinymce() {
-  	tinymce.activeEditor.getBody().setAttribute('contenteditable', true);
-}
 
 function get_projects()
 {

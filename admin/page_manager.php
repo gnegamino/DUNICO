@@ -34,7 +34,7 @@
 								</div>
 								<div class="pull-right">
 									<input type="button" class="btn btn-success save home" value="Edit">
-									<input type="button" class="btn btn-danger" value="Cancel" disabled>
+									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>
 						</div>
@@ -48,7 +48,7 @@
 										</tr>
 										<tr>
 											<td valign="top">Motto Panel Content:</td>
-											<td><textarea id="motto_content" class="form-control mceEditor" rows="3"></textarea></td>
+											<td><textarea id="motto_content" class="form-control" rows="3"></textarea></td>
 										</tr>
 									</table>
 								</div>
@@ -63,6 +63,7 @@
 								</div>
 								<div class="pull-right">
 									<input type="button" class="btn btn-success save services" value="Edit">
+									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>
 						</div>
@@ -87,6 +88,7 @@
 								</div>
 								<div class="pull-right">
 									<input type="button" class="btn btn-success save about" value="Edit">
+									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>
 						</div>
@@ -123,6 +125,7 @@
 								</div>
 								<div class="pull-right">
 									<input type="button" class="btn btn-success save contact" value="Edit">
+									<input type="button" class="btn btn-danger cancel" value="Cancel" disabled>
 								</div>
 							</div>
 						</div>
