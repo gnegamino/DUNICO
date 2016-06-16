@@ -59,6 +59,40 @@
 			$result = mysqli_query($conn, $sql);
 			break;
 
+
+		case 'load_about':
+			$sql = "SELECT * FROM `page_about` LIMIT 1";
+
+			$result = mysqli_query($conn, $sql);
+ 			$row = mysqli_fetch_assoc($result);
+
+			$response['about'] = [ 
+				'company_name' => $row['company_name'],
+				'founder_name' => $row['founder_name'],
+				'our_profile' => $row['our_profile'],
+				'our_founder' => $row['our_founder']
+			];
+			
+			break;
+		case 'save_about':
+			$company_name = mysqli_real_escape_string($conn, $company_name);
+			$founder_name = mysqli_real_escape_string($conn, $founder_name);
+			$our_profile = mysqli_real_escape_string($conn, $our_profile);
+			$our_founder = mysqli_real_escape_string($conn, $our_founder);
+
+			$sql = "UPDATE
+						`page_about` 
+					SET 
+						`company_name`='$company_name',
+						`founder_name`='$founder_name',
+						`our_profile` ='$our_profile',
+						`our_founder` ='$our_founder'
+					WHERE 
+						`content_id`='1';";
+
+			$result = mysqli_query($conn, $sql);
+			break;
+
 		default:
 			$response['error'] = 'Invalid arguments!';
 			break;

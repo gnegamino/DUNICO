@@ -11,6 +11,7 @@ $(function(){
 
 	load_home();
 	load_services();
+	load_about();
 
 	$(document).on('click', '.edit', function(){
 		var panelToEdit = $(this).attr('class').split(' ')[3];
@@ -158,7 +159,12 @@ function load_about()
 		dataType: 'JSON',
 		data: 'data=' + JSON.stringify(arr),
 		success: function(response) {
-			
+			if(response.error == ''){
+				$('#company_name').val(response.about.company_name);
+				$('#founder_name').val(response.about.founder_name);
+				$('#our_founder').summernote('code', response.about.our_founder);
+				$('#our_profile').summernote('code', response.about.our_profile);
+			}
 		}       
 	});
 }
@@ -222,12 +228,15 @@ function save_services()
 
 function save_about()
 {
+	var our_founder = $('#our_founder').summernote('code');
+
+	alert(our_founder);
 	var arr = {
 		fnc : 'save_about',
 		company_name : $('#company_name').val(),
 		founder_name : $('#founder_name').val(),
-		our_profile : $('#our_profile').summernote('code'),
-		our_founder : $('#our_founder').summernote('code')
+		our_profile : encodeURIComponent($('#our_profile').summernote('code')),
+		our_founder : our_founder
 	};
 
 	$.ajax(backstage, {

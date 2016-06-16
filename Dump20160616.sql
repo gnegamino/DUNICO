@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `db_dunico` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `db_dunico`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
--- Host: localhost    Database: db_dunico
+-- Host: 127.0.0.1    Database: db_dunico
 -- ------------------------------------------------------
--- Server version	5.5.27
+-- Server version	5.6.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,11 +26,11 @@ CREATE TABLE `page_about` (
   `content_id` int(5) NOT NULL AUTO_INCREMENT,
   `company_name` varchar(45) DEFAULT NULL,
   `founder_name` varchar(45) DEFAULT NULL,
-  `our_profile` varchar(255) DEFAULT NULL,
-  `our_founder` varchar(255) DEFAULT NULL,
+  `our_profile` varchar(9999) DEFAULT NULL,
+  `our_founder` varchar(9999) DEFAULT NULL,
   PRIMARY KEY (`content_id`),
   UNIQUE KEY `content_id_UNIQUE` (`content_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +39,7 @@ CREATE TABLE `page_about` (
 
 LOCK TABLES `page_about` WRITE;
 /*!40000 ALTER TABLE `page_about` DISABLE KEYS */;
+INSERT INTO `page_about` VALUES (1,'D`UNICO','Francis Arollado','<p>D`UNICO is a design studio that caters multidisciplinary practice in hospitality, resort planning, corporate, residential, commercial interior and architectural design services both domestic and international.<br><br>Our ability to span across different scales and levels of complexity is evidenced by our portfolio of work ranging from  sizable space, buildings and complex development - each requiring the coordination our talented multidisciplinary teams. Our team are composed of young talented designers and architects which we shared common commitment and passion in design. Our passion, drive and focus on unique solution are established on client needs, environment and social requirements. <br><br>Our values reflect our commitment in providing with you a distinctive experience that harmonize unique architecture which embodieswith one goal in mind - creative process, efficient space, unparalleled idea, clean lines and forms.</p>','\"<span style=\\\"color:red;\\\">hahaha</span>\"');
 /*!40000 ALTER TABLE `page_about` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,4 +246,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-16 19:03:06
+-- Dump completed on 2016-06-16 23:14:01
