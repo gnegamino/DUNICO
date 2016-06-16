@@ -143,7 +143,7 @@
 										</tr>
 										<tr>
 											<td>E-mail Address:</td>
-											<td><input type="text" id="email_address" class="form-control" disabled></td>
+											<td><input type="text" id="email" class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td>Website URL:</td>

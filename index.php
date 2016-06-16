@@ -43,12 +43,8 @@
 						</div>
 					</div>
 					<div class="company-caption">
-						<h1>Creative processes, unparalleled ideas</h1>
-						<p>
-							Our values reflect our commitment in providing with you a 
-							distinctive experience that harmonize unique architecture 
-							which embodies with one goal in mind - creative process, 
-							efficient space, unparalleled idea, clean lines and forms.
+						<h1 id="motto_caption"></h1>
+						<p id="motto_content">
 						</p>
 						<div class="pull-right media-links">
 							<a href="projects.php">

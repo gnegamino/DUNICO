@@ -9,24 +9,33 @@ $(function(){
 	$('#our_profile').summernote('disable');
 	$('#our_founder').summernote('disable');
 
-	$('.edit').click(function(){
+	load_home();
+	load_services();
+
+	$(document).on('click', '.edit', function(){
 		var panelToEdit = $(this).attr('class').split(' ')[3];
 
 		$(this).val('Save');
-		$(this).removeClass('edit home').addClass('save home');
 
 		switch(panelToEdit){
 			case 'home':
+				$(this).removeClass('edit home').addClass('save home');
 				$('#motto_content').summernote('enable');
 				break;
 
 			case 'services':
+				$(this).removeClass('edit services').addClass('save services');
 				$('#our_services').summernote('enable');
 				break;
 
 			case 'about':
+				$(this).removeClass('edit about').addClass('save about');
 				$('#our_profile').summernote('enable');
 				$('#our_founder').summernote('enable');
+				break;
+
+			case 'contact':
+				$(this).removeClass('edit contact').addClass('save contact');
 				break;
 		}
 
@@ -34,51 +43,80 @@ $(function(){
 		$(this).closest('.content-split').find('input').attr('disabled', false);
 	});
 
-
-	$('.save').click(function(){
-		var panelToSave = $(this).attr('class').split(' ')[3];
-
-				alert();
-		switch(panelToSave){
-			case 'home':
-				break;
-
-			case 'services':
-				$('#our_services').summernote('enable');
-				break;
-
-			case 'about':
-				$('#our_profile').summernote('enable');
-				$('#our_founder').summernote('enable');
-				break;
-		}
-	});
-
 	$('.cancel').click(function(){
 		var panelToCancel = $(this).closest('.content-split').find('.btn-success').attr('class').split(' ')[3];
 		var textareaToDisable = "#" + $(this).closest('.content-split').find('textarea').attr('id');
 
 		switch(panelToCancel){
+			case 'home':
+				$(this).closest('.pull-right').find('.btn-success').removeClass('save home').addClass('edit home').val('Edit');
+				break;
+
+			case 'services':
+				$(this).closest('.pull-right').find('.btn-success').removeClass('save services').addClass('edit services').val('Edit');
+				break;
+
 			case 'about':
 				$('#our_profile').summernote('disable');
 				$('#our_founder').summernote('disable');
+				$(this).closest('.pull-right').find('.btn-success').removeClass('save about').addClass('edit about').val('Edit');
 			break;
 
-			default:
-				$(textareaToDisable).summernote('disable');
+			case 'contact':
+				$(this).closest('.pull-right').find('.btn-success').removeClass('save contact').addClass('edit contact').val('Edit');
 			break;
 		}
 
 		$(this).attr('disabled', true);
-		$(this).closest('.pull-right').find('.btn-success').val('Edit');
+		$(textareaToDisable).summernote('disable');
 		$(this).closest('.content-split').find('input:text').attr('disabled', true);
+	});
+
+	$(document).on('click', '.save', function(){
+		var panelToSave = $(this).attr('class').split(' ')[3];
+		
+		switch(panelToSave){
+			case 'home':
+				save_home();
+				$(this).removeClass('save home').addClass('edit home');
+				$(this).closest('.content-split').find('input:text, .btn-danger').attr('disabled', true);
+				$('#motto_content').summernote('disable');
+				break;
+
+			case 'services':
+				// ajax
+				save_services();
+				$(this).removeClass('save services').addClass('edit services');
+				$(this).closest('.content-split').find('input:text, .btn-danger').attr('disabled', true);
+				$('#our_services').summernote('disable');
+				break;
+
+			case 'about':
+				// ajax
+				save_about();
+				$(this).removeClass('save about').addClass('edit about');
+				$(this).closest('.content-split').find('input:text, .btn-danger').attr('disabled', true);
+				$('#our_founder').summernote('disable');
+				$('#our_profile').summernote('disable');
+				break;
+
+			case 'contact':
+				// ajax
+				save_contact();
+				$(this).removeClass('save contact').addClass('edit contact');
+				$(this).closest('.content-split').find('input:text, .btn-danger').attr('disabled', true);
+				break;
+		}
+
+		$(this).val('Edit');
 	});
 });
 
-function get_projects()
+
+function load_home()
 {
 	var arr = {
-		fnc : 'get_projects'
+		fnc : 'load_home'
 	};
 
 	$.ajax(backstage, {
@@ -86,7 +124,144 @@ function get_projects()
 		dataType: 'JSON',
 		data: 'data=' + JSON.stringify(arr),
 		success: function(response) {
+			$('#motto_caption').val(response.home.motto_caption);
+			$('#motto_content').summernote('code',response.home.motto_content);
+		}       
+	});
+}
 
+function load_services()
+{
+	var arr = {
+		fnc : 'load_services'
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			if(response.error == '')
+				$('#our_services').summernote('code', response.services.our_services);
+		}       
+	});
+}
+
+function load_about()
+{
+	var arr = {
+		fnc : 'load_about'
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			
+		}       
+	});
+}
+
+function load_contact()
+{
+	var arr = {
+		fnc : 'load_contact'
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			
+		}       
+	});
+}
+
+function save_home()
+{
+	var arr = {
+		fnc : 'save_home',
+		motto_caption : $('#motto_caption').val(),
+		motto_content : $('#motto_content').summernote('code')	
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			if (response.error == '') {
+				alert('Home Page content changes has been saved!');
+				load_home();
+			}
+		}       
+	});
+}
+
+function save_services()
+{
+	var arr = {
+		fnc : 'save_services',
+		our_services : $('#our_services').summernote('code')
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			if (response.error == '') {
+				alert('Services Page content changes has been saved!');
+				load_services();
+			}
+		}       
+	});
+}
+
+function save_about()
+{
+	var arr = {
+		fnc : 'save_about',
+		company_name : $('#company_name').val(),
+		founder_name : $('#founder_name').val(),
+		our_profile : $('#our_profile').summernote('code'),
+		our_founder : $('#our_founder').summernote('code')
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			if (response.error == '') {
+				alert('About Page content changes has been saved!');
+				load_about();
+			}
+		}       
+	});
+}
+
+function save_contact()
+{
+	var arr = {
+		fnc : 'save_contact',
+		contact_name : $('#contact_name').val(),
+		contact_no : $('#contact_no').val(),
+		email : $('#email').val(),
+		website : $('#website').val()
+	};
+
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			if (response.error == '') {
+				alert('About Page content changes has been saved!');
+				load_contact();
+			}
 		}       
 	});
 }

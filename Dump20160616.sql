@@ -81,10 +81,10 @@ DROP TABLE IF EXISTS `page_home`;
 CREATE TABLE `page_home` (
   `content_id` int(5) NOT NULL AUTO_INCREMENT,
   `motto_caption` varchar(255) DEFAULT NULL,
-  `motto_content` varchar(255) DEFAULT NULL,
+  `motto_content` varchar(9999) DEFAULT NULL,
   PRIMARY KEY (`content_id`),
   UNIQUE KEY `page_content_id_UNIQUE` (`content_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +93,7 @@ CREATE TABLE `page_home` (
 
 LOCK TABLES `page_home` WRITE;
 /*!40000 ALTER TABLE `page_home` DISABLE KEYS */;
+INSERT INTO `page_home` VALUES (1,'Creative processes, unparalleled ideas','<p>Our values reflect our commitment in providing with you a \n							distinctive experience that harmonize unique architecture \n							which embodies with one goal in mind - creative process, \n							efficient space, unparalleled idea, clean lines and forms.\n						</p>');
 /*!40000 ALTER TABLE `page_home` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,10 +106,10 @@ DROP TABLE IF EXISTS `page_services`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `page_services` (
   `content_id` int(5) NOT NULL AUTO_INCREMENT,
-  `our_services` varchar(255) DEFAULT NULL,
+  `our_services` varchar(9999) DEFAULT NULL,
   PRIMARY KEY (`content_id`),
   UNIQUE KEY `content_id_UNIQUE` (`content_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,6 +118,7 @@ CREATE TABLE `page_services` (
 
 LOCK TABLES `page_services` WRITE;
 /*!40000 ALTER TABLE `page_services` DISABLE KEYS */;
+INSERT INTO `page_services` VALUES (1,'<h3>STRATEGIC CONSULTING</h3><p>Feasibility Study<br>Programmings<br>Space Management Study<br>Workplace Solution Study</p><h3>ARCHITECTURAL AND INTERIOR DESIGN</h3><p>Project Definition<br>Schematic Design<br>Design Development<br>Contract Document<br>Negotiation Phase<br>Construction Phase</p><h3>OTHER SERVICES</h3><p>Drafting<br>Rendering</p><p><br></p>');
 /*!40000 ALTER TABLE `page_services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,4 +247,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-14 18:52:46
+-- Dump completed on 2016-06-16 19:03:06
