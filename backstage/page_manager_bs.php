@@ -93,6 +93,39 @@
 			$result = mysqli_query($conn, $sql);
 			break;
 
+		case 'load_contact':
+			$sql = "SELECT * FROM `page_contact` LIMIT 1";
+
+			$result = mysqli_query($conn, $sql);
+ 			$row = mysqli_fetch_assoc($result);
+
+			$response['contact'] = [ 
+				'contact_name' => $row['contact_name'],
+				'contact_no' => $row['contact_no'],
+				'email' => $row['email'],
+				'website' => $row['website']
+			];
+			
+			break;
+		case 'save_contact':
+			$contact_name = mysqli_real_escape_string($conn, $contact_name);
+			$contact_no = mysqli_real_escape_string($conn, $contact_no);
+			$email = mysqli_real_escape_string($conn, $email);
+			$website = mysqli_real_escape_string($conn, $website);
+
+			$sql = "UPDATE
+						`page_contact` 
+					SET 
+						`contact_name`='$contact_name',
+						`contact_no`='$contact_no',
+						`email` ='$email',
+						`website` ='$website'
+					WHERE 
+						`content_id`='1';";
+
+			$result = mysqli_query($conn, $sql);
+			break;
+
 		default:
 			$response['error'] = 'Invalid arguments!';
 			break;

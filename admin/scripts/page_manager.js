@@ -12,6 +12,7 @@ $(function(){
 	load_home();
 	load_services();
 	load_about();
+	load_contact();
 
 	$(document).on('click', '.edit', function(){
 		var panelToEdit = $(this).attr('class').split(' ')[3];
@@ -180,7 +181,12 @@ function load_contact()
 		dataType: 'JSON',
 		data: 'data=' + JSON.stringify(arr),
 		success: function(response) {
-			
+			if (response.error == '') {
+				$('#contact_name').val(response.contact.contact_name);
+				$('#contact_no').val(response.contact.contact_no);
+				$('#email').val(response.contact.email);
+				$('#website').val(response.contact.website);
+			}
 		}       
 	});
 }
@@ -228,15 +234,12 @@ function save_services()
 
 function save_about()
 {
-	var our_founder = $('#our_founder').summernote('code');
-
-	alert(our_founder);
 	var arr = {
 		fnc : 'save_about',
 		company_name : $('#company_name').val(),
 		founder_name : $('#founder_name').val(),
-		our_profile : encodeURIComponent($('#our_profile').summernote('code')),
-		our_founder : our_founder
+		our_profile : $('#our_profile').summernote('code').replace('&', '%26'),
+		our_founder : $('#our_founder').summernote('code').replace('&', '%26')
 	};
 
 	$.ajax(backstage, {
@@ -257,7 +260,7 @@ function save_contact()
 	var arr = {
 		fnc : 'save_contact',
 		contact_name : $('#contact_name').val(),
-		contact_no : $('#contact_no').val(),
+		contact_no : encodeURIComponent($('#contact_no').val()),
 		email : $('#email').val(),
 		website : $('#website').val()
 	};
@@ -268,7 +271,7 @@ function save_contact()
 		data: 'data=' + JSON.stringify(arr),
 		success: function(response) {
 			if (response.error == '') {
-				alert('About Page content changes has been saved!');
+				alert('Contact Page content changes has been saved!');
 				load_contact();
 			}
 		}       

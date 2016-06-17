@@ -285,6 +285,7 @@ h2{
 	margin-top: -10px;
 	margin-bottom: 25px;
 	font-family: Lato-Regular;
+	text-transform: uppercase;
 }
 #profile #our-profile p{
 	line-height: 1.8;
@@ -451,9 +452,11 @@ h2{
 /*Contact Information*/
 #contact h2{
 	font-size: 50px;
+	color: #fff;
 }
 #contact h3{
 	font-family: Lato-Regular;
+	text-transform: uppercase;
 }
 #contact .each-contact:first-child{
 	margin-top: 0;
@@ -461,6 +464,7 @@ h2{
 #contact .each-contact{
 	margin-top: 30px;
 	margin-left: 38px;
+	color: #fff;
 }
 #contact .each-contact table{
 	margin-left: 15px;
