@@ -1,5 +1,12 @@
+var backstage = "../admin/backstage/login_bs.php";
+
 $(function(){
-	var backstage = "../admin/backstage/login_bs.php";
+	$('#username').focus();
+	
+	$(document).keypress(function(e) {
+	    if(e.which == 13)
+			check_user_login();
+	});
 
 	$("#login").click(function(){
 		check_user_login();

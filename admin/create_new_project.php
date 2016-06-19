@@ -27,6 +27,9 @@
 					<div class="heading-title">
 						Create New Project
 					</div>
+					<div class="content-split" align="center">
+						<div id="messagebox"></div>
+					</div>
 					<div class="content-split clearfix">
 						<table class="tbl-layout">
 							<tr>
