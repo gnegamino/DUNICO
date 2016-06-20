@@ -705,6 +705,7 @@ textarea{
 	width: 100%;
 }
 .a-project-image{
+	position: relative;
 	margin-top: 15px;
 	margin-left: 15px;
 	float: left;
@@ -716,6 +717,18 @@ textarea{
 .a-project-image img{
 	width: 174px;
 	height: 140.5px;
+}
+.a-project-image i{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: #F44242;
+	color: #fff;
+	padding: 3px;
+}
+.a-project-image i:hover{
+	background: #B52929;
+	cursor: pointer;
 }
 
 /*SUMMERNOTE*/

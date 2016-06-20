@@ -18,6 +18,7 @@ $(function(){
             	for(x in response.data){
 					preview += '<div class="a-project-image">';
 					preview += '<img src="../arch/'+ response.data[x].image_name +'">';
+					preview += '<i class="fa fa-close fa-lg"></i>';
 					preview += '</div>';
             	}
 
@@ -26,14 +27,28 @@ $(function(){
         }).submit();
 	});
 
+	$('#to_be_uploaded').on('click', '.a-project-image i', function(){
+
+		var request = {
+			fnc : 'remove_image',
+			image : $(this).closest('.a-project-image').find('img').attr('src')
+		};
+
+		$.ajax(backstage, {
+			type: 'POST',
+			dataType: 'JSON',
+			data: 'data=' + JSON.stringify(request),
+			success: function(response) {
+
+			}  
+		});
+
+		$(this).closest('.a-project-image').remove();
+	});
+
 	$('#save_project').click(function(){
 		var arr = [];
 		var error_html = '';
-
-		$('#to_be_uploaded img').each(function(){
-			var imgSrc = $(this).attr('src').replace('../arch/','');
-			arr.push(imgSrc);
-		});
 
 		if( $('#project_name').val().isEmpty() ||
 			$('#project_description').val().isEmpty() || 
@@ -42,11 +57,17 @@ $(function(){
 		}
 
 		if(arr[0] == undefined){
-			error_html += '<div class="lblmsg danger">Please Upload at least one image!</div>';
+			error_html += '<div class="lblmsg danger">Please upload at least one image!</div>';
 		}
 
 		if(error_html == ''){
 			$('#messagebox').html("");
+
+			$('#to_be_uploaded img').each(function(){
+				var imgSrc = $(this).attr('src').replace('../arch/','');
+				arr.push(imgSrc);
+			});
+
 			var request = {
 				fnc : 'save_project',
 				project_name : $('#project_name').val(),

@@ -44,17 +44,21 @@
 			mysqli_query($conn, $sql);
 
 			// PROJECT IMAGES
-			// foreach ($arr_uploadimages as $key => $value) {
-			// 	$sql = "INSERT INTO 
-			// 				`db_dunico`.`project_images` 
-			// 				(`project_id`, `filename`) 
-			// 			VALUES 
-			// 				($project_id, '$value')";
+			foreach ($arr_uploadimages as $key => $value) {
+				$sql = "INSERT INTO 
+							`project_images` 
+							(`project_id`, `filename`) 
+						VALUES 
+							($project_id, '$value')";
 
-		 // 		mysqli_query($conn, $sql);
+		 		mysqli_query($conn, $sql);
 
-		 // 		echo $value;
-			// }
+		 		echo $value;
+			}
+			break;
+
+		case 'remove_image':
+			unlink('../'. $image);
 			break;
 
 		default:
