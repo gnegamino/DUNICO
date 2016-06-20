@@ -28,16 +28,24 @@ $(function(){
 
 	$('#save_project').click(function(){
 		var arr = [];
+		var error_html = '';
 
 		$('#to_be_uploaded img').each(function(){
 			var imgSrc = $(this).attr('src').replace('../arch/','');
 			arr.push(imgSrc);
 		});
 
+		if( $('#project_name').val().isEmpty() ||
+			$('#project_description').val().isEmpty() || 
+			$('#year_established').val().isEmpty()){
+			error_html += '<div class="lblmsg danger">Please complete all the necessary fields!</div>';
+		}
+
 		if(arr[0] == undefined){
-			$('#messagebox').html('Please Upload at least one image!');
-			return;
-		}else{
+			error_html += '<div class="lblmsg danger">Please Upload at least one image!</div>';
+		}
+
+		if(error_html == ''){
 			$('#messagebox').html("");
 			var request = {
 				fnc : 'save_project',
@@ -56,6 +64,9 @@ $(function(){
 
 				}  
 			});
+		}else{
+			$("#messagebox").html(error_html);
+			return;
 		}
 	});
 });
@@ -84,3 +95,13 @@ function get_category_list()
 	});
 }
 
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+String.prototype.isEmpty = function() {
+    return (this.length === 0 || !this.trim());
+};
