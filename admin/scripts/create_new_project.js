@@ -47,7 +47,7 @@ $(function(){
 	});
 
 	$('#save_project').click(function(){
-		var arr = [];
+		var arr = [], arr_checkimages = [];
 		var error_html = '';
 
 		if( $('#project_name').val().isEmpty() ||
@@ -56,7 +56,12 @@ $(function(){
 			error_html += '<div class="lblmsg danger">Please complete all the necessary fields!</div>';
 		}
 
-		if(arr[0] == undefined){
+		$('#to_be_uploaded img').each(function(){
+			var imgSrc = $(this).attr('src').replace('../arch/','');
+			arr_checkimages.push(imgSrc);
+		});
+
+		if(arr_checkimages[0] == undefined){
 			error_html += '<div class="lblmsg danger">Please upload at least one image!</div>';
 		}
 

@@ -11,7 +11,14 @@
 	
 	switch ($fnc) {
 		case 'get_year':
-			$sql = "SELECT DISTINCT P.`year_established` FROM projects AS P ORDER BY P.`year_established` DESC";
+			$sql = "SELECT DISTINCT 
+						P.`year_established` 
+					FROM 
+						`projects` AS P 
+					WHERE
+						P.`is_active` = 1
+					ORDER BY 
+						P.`year_established` DESC";
 
 		 	$result = mysqli_query($conn, $sql);
 		 	$i = 0;

@@ -95,7 +95,7 @@ function select_data(sort) {
 			tableheader += '<td class="tdprojectdescription">Description</td>';
 			tableheader += '<td class="tdcategory">Category</td>';
 			tableheader += '<td class="tdyearestablished">Year Established</td>';
-			tableheader += '<td class="tdnofpictures">No. of Pictures</td>';
+			// tableheader += '<td class="tdnofpictures">No. of Pictures</td>';
 			tableheader += '<td class="tdstatus">Status</td>';
 			tableheader += '</tr>';
 
@@ -107,7 +107,7 @@ function select_data(sort) {
 				tabledata += '<td class="tdprojectdescription">' + response.data[x].project_description + '</td>';
 				tabledata += '<td class="tdcategoryname">' + response.data[x].category_name + '</td>';
 				tabledata += '<td class="tdyearestablished">' + response.data[x].year_established + '</td>';
-				tabledata += '<td class="tdnoofpictures">' + response.data[x].no_of_pictures + '</td>';
+				// tabledata += '<td class="tdnoofpictures">' + response.data[x].no_of_pictures + '</td>';
 				tabledata += '<td class="tdisactive">' + response.data[x].is_active + '</td>';
 				tabledata += '</tr>';
 			}
@@ -141,7 +141,7 @@ function select_archive(sort) {
 			tableheader += '<td class="tdprojectdescription">Description</td>';
 			tableheader += '<td class="tdcategory">Category</td>';
 			tableheader += '<td class="tdyearestablished">Year Established</td>';
-			tableheader += '<td class="tdnofpictures">No. of Pictures</td>';
+			// tableheader += '<td class="tdnofpictures">No. of Pictures</td>';
 			tableheader += '<td class="tdstatus">Status</td>';
 			tableheader += '</tr>';
 
@@ -153,7 +153,7 @@ function select_archive(sort) {
 				tabledata += '<td class="tdprojectdescription">' + response.data[x].project_description + '</td>';
 				tabledata += '<td class="tdcategoryname">' + response.data[x].category_name + '</td>';
 				tabledata += '<td class="tdyearestablished">' + response.data[x].year_established + '</td>';
-				tabledata += '<td class="tdnoofpictures">' + response.data[x].no_of_pictures + '</td>';
+				// tabledata += '<td class="tdnoofpictures">' + response.data[x].no_of_pictures + '</td>';
 				tabledata += '<td class="tdisactive">' + response.data[x].is_active + '</td>';
 				tabledata += '</tr>';
 			}

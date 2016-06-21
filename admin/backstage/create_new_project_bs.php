@@ -36,24 +36,27 @@
 			$year_established = mysqli_real_escape_string($conn, $year_established);
 			
 			$sql = "INSERT INTO
-						`projects` 
-						(`project_name`, `project_description`, `is_active`, `is_show`, `category_id`, `year_established`, `date_created`) 
-					VALUES 
-						('$project_name', '$project_description', '1', '1', '$category_id', '$year_established', now());";
+							`projects` 
+							(`user_id`, `project_name`, `project_description`, `is_active`, `is_show`, `category_id`, `year_established`, `date_created`) 
+						VALUES 
+							('$user_id', '$project_name', '$project_description', '1', '1', '$category_id', '$year_established', now());";
 
 			mysqli_query($conn, $sql);
 
+			$sql = "SELECT MAX(project_id) AS project_id FROM `projects`";
+			$result = mysqli_query($conn, $sql);
+			$row = mysqli_fetch_assoc($result);
+
+			$latest_project_id =  $row["project_id"];
 			// PROJECT IMAGES
 			foreach ($arr_uploadimages as $key => $value) {
-				$sql = "INSERT INTO 
+				echo $sql = "INSERT INTO 
 							`project_images` 
 							(`project_id`, `filename`) 
 						VALUES 
-							($project_id, '$value')";
+							('$latest_project_id', 'PI_$value')";
 
 		 		mysqli_query($conn, $sql);
-
-		 		echo $value;
 			}
 			break;
 

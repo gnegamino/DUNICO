@@ -25,7 +25,6 @@
 					    project_id,
 					    project_name,
 					    project_description,
-					    no_of_pictures,
 					    category_name,
 					    year_established,
 					    is_active
@@ -50,7 +49,6 @@
 									'project_id' => $row['project_id'],
 									'project_name' => $row['project_name'],
 									'project_description' => $row['project_description'],
-									'no_of_pictures' => $row['no_of_pictures'],
 									'category_name' => $row['category_name'],
 									'year_established' => $row['year_established'],
 									'is_active' => ($row['is_active'] == 1) ? "Active" : "Inactive"
@@ -75,7 +73,6 @@
 					    project_id,
 					    project_name,
 					    project_description,
-					    no_of_pictures,
 					    category_name,
 					    year_established,
 					    is_active
@@ -100,7 +97,6 @@
 									'project_id' => $row['project_id'],
 									'project_name' => $row['project_name'],
 									'project_description' => $row['project_description'],
-									'no_of_pictures' => $row['no_of_pictures'],
 									'category_name' => $row['category_name'],
 									'year_established' => $row['year_established'],
 									'is_active' => ($row['is_active'] == 1) ? "Active" : "Inactive"
