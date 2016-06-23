@@ -30,6 +30,9 @@
 					<div class="heading-title">
 						Edit Project
 					</div>
+					<div class="content-split" align="center">
+						<div id="messagebox"></div>
+					</div>
 					<div class="content-split clearfix">
 						<table class="tbl-layout">
 							<tr>
@@ -42,11 +45,19 @@
 							</tr>
 							<tr>
 								<td>Category:</td>
-								<td><input id="category_name" type="text" class="form-control"></td>
+								<td><select id="category_list" class="form-control"></select></td>
 							</tr>
 							<tr>
 								<td>Year established:</td>
-								<td><input id="year_established" type="text" class="form-control"></td>
+								<td>
+									<select id="year_established" class="form-control">
+										<?php 
+											for ($i = date(Y); $i > 1970; $i--) { 
+												echo "<option value='$i'>".$i."</option>";
+											}
+										?>
+									</select>
+								</td>
 							</tr>
 						</table>
 					</div>

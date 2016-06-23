@@ -13,13 +13,14 @@
 	
 	switch ($fnc) {
 		case 'select_data':
+			if($search_str != ""){
+				$search_str = mysqli_real_escape_string($conn, $search_str);
+				$like_clause = " AND P.`project_name` LIKE '%". $search_str . "%' ";
+			}else
+				$like_clause = '';
 
-			if($sort == "category")
-				$sort = "category_name";
-			else if($sort == "year")
-				$sort = "year_established";
-			else
-				$sort = "project_name";
+
+			$is_show = ($switch_mode == 1) ? '1' : '0';
 
 			$sql = "SELECT 
 					    project_id,
@@ -29,16 +30,15 @@
 					    year_established,
 					    is_active
 					FROM
-					    db_dunico.projects
+					    `projects` AS P
 					JOIN
-					    db_dunico.projects_category 
+					    `projects_category` AS PC
 					ON 
-						db_dunico.projects.category_id = db_dunico.projects_category.category_id
+						P.`category_id` = PC.`category_id`
 					WHERE
-						is_show = 1
+						P.`is_show` = $is_show
 					AND
-						user_id = $user_id
-					ORDER BY $sort";
+						P.`user_id` = $user_id $like_clause ORDER BY $sort $sort_row";
 
 		 	$result = mysqli_query($conn, $sql);
 			$i = 0;
@@ -56,56 +56,10 @@
 				$i++;
 			};
 
-
-			$response['data'] = $dataSet;
-			break;
-
-		case 'select_archive':
-
-			if($sort == "category")
-				$sort = "category_name";
-			else if($sort == "year")
-				$sort = "year_established";
+			if(isset($dataSet))
+				$response['data'] = $dataSet;
 			else
-				$sort = "project_name";
-
-			$sql = "SELECT 
-					    project_id,
-					    project_name,
-					    project_description,
-					    category_name,
-					    year_established,
-					    is_active
-					FROM
-					    db_dunico.projects
-					JOIN
-					    db_dunico.projects_category 
-					ON 
-						db_dunico.projects.category_id = db_dunico.projects_category.category_id
-					WHERE
-						is_show = 0
-					AND
-						user_id = $user_id
-					ORDER BY $sort";
-
-		 	$result = mysqli_query($conn, $sql);
-			$i = 0;
-
-			while ($row = mysqli_fetch_assoc($result)) 
-			{
-				$dataSet[$i] = array(
-									'project_id' => $row['project_id'],
-									'project_name' => $row['project_name'],
-									'project_description' => $row['project_description'],
-									'category_name' => $row['category_name'],
-									'year_established' => $row['year_established'],
-									'is_active' => ($row['is_active'] == 1) ? "Active" : "Inactive"
-								);
-				$i++;
-			};
-
-
-			$response['data'] = $dataSet;
+				$response['error'] = 'No data found!';
 			break;
 
 
@@ -136,13 +90,27 @@
 
 					$result = mysqli_query($conn, $sql);
 				}
-			}else{
+			}else if($method == 'delete'){
 				foreach ($arr_status as $value) {
 					$sql = "UPDATE 
 								`db_dunico`.`projects` 
 							SET 
 								`is_show`='0',
 								`is_active`='0'  
+							WHERE 
+								`project_id`='$value' 
+							AND
+								user_id = $user_id";
+
+					$result = mysqli_query($conn, $sql);
+				}
+			}else{
+				foreach ($arr_status as $value) {
+					$sql = "UPDATE 
+								`db_dunico`.`projects` 
+							SET 
+								`is_show`='1',
+								`is_active`='1'  
 							WHERE 
 								`project_id`='$value' 
 							AND

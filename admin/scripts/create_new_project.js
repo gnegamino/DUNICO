@@ -13,16 +13,20 @@ $(function(){
 			type: 'POST',
 			dataType: 'JSON',
             success: function(response){
-            	var preview = '', x;
+            	if(response.error == ''){
+	            	var preview = '', x;
+					$('#messagebox').html("");
 
-            	for(x in response.data){
-					preview += '<div class="a-project-image">';
-					preview += '<img src="../arch/'+ response.data[x].image_name +'">';
-					preview += '<i class="fa fa-close fa-lg"></i>';
-					preview += '</div>';
-            	}
+	            	for(x in response.data){
+						preview += '<div class="a-project-image">';
+						preview += '<img src="../arch/'+ response.data[x].image_name +'">';
+						preview += '<i class="fa fa-close fa-lg"></i>';
+						preview += '</div>';
+	            	}
 
-            	$('#to_be_uploaded').append(preview);
+	            	$('#to_be_uploaded').append(preview);
+	            }else
+	            	$('#messagebox').addClass('lblmsg danger').html(response.error);
             }
         }).submit();
 	});
@@ -51,8 +55,7 @@ $(function(){
 		var error_html = '';
 
 		if( $('#project_name').val().isEmpty() ||
-			$('#project_description').val().isEmpty() || 
-			$('#year_established').val().isEmpty()){
+			$('#project_description').val().isEmpty()){
 			error_html += '<div class="lblmsg danger">Please complete all the necessary fields!</div>';
 		}
 
@@ -122,12 +125,3 @@ function get_category_list()
 }
 
 
-function isEmpty(str) {
-    return (!str || 0 === str.length);
-}
-function isBlank(str) {
-    return (!str || /^\s*$/.test(str));
-}
-String.prototype.isEmpty = function() {
-    return (this.length === 0 || !this.trim());
-};

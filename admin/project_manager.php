@@ -29,25 +29,36 @@
 					<div class="content-split">
 						<table class="tbl-layout">
 							<tr>
+								<td>Search project name:</td>
+								<td><input id="search_str" type="text" class="form-control"></td>
 								<td>Sort by:</td>
 								<td>
-									<select id="sort" class="form-control inline">
-										<option value="name">By project name</option>
-										<option value="category">By category</option>
-										<option value="year">By year established</option>
+									<select id="sort_by" class="form-control inline">
+										<option value="project_name">By project name</option>
+										<option value="category_name">By category</option>
+										<option value="year_established">By year established</option>
+										<option value="status">By status</option>
+										<option value="date_created">By date created</option>
+										<option value="date_modified">By date modified</option>
 									</select>	
 								</td>
+								<td><input id="sort_row" type="button" value="ASC" class="btn btn-info"></td>
+								<td><input id="search" type="button" value="Search" class="btn btn-default"></td>
+								<td id="messagebox" hidden></td>
 							</tr>
-						</table>
-						
-										
+						</table>	
 					</div>
 					<div class="content-split clearfix">
-						<input type="submit" class="btn btn-primary" id="create_new_project" value="Create New Project">
-						<input type="submit" class="btn btn-info" id="activate_selected" value="Activate Selected">
-						<input type="submit" class="btn btn-warning" id="deactivate_selected" value="Deactivate Selected">
-						<input type="submit" class="btn btn-danger" id="delete_selected" value="Delete Selected">
-						<input type="submit" class="btn btn-default" id="show_archive" value="View Archived Projects">
+						<div class="pull-left">
+							<input type="submit" class="btn btn-primary" id="create_new_project" value="Create New Project">
+							<input type="submit" class="btn btn-info" id="activate_selected" value="Activate Selected">
+							<input type="submit" class="btn btn-warning" id="deactivate_selected" value="Deactivate Selected">
+							<input type="submit" class="btn btn-danger" id="delete_selected" value="Delete Selected">
+						</div>
+						<div class="pull-right">
+							<input type="submit" class="btn btn-default" id="switch_projects" value="View Archived Projects">
+							<input type="submit" class="btn btn-success" id="restore_selected" value="Restore Selected">
+						</div>
 					</div>
 					<div class="content-split">
 						<input id="sort_status" type="hidden" value="undeleted">

@@ -46,7 +46,15 @@
 							</tr>
 							<tr>
 								<td>Year established:</td>
-								<td><input id="year_established" type="text" class="form-control"></td>
+								<td>
+									<select id="year_established" class="form-control">
+										<?php 
+											for ($i = date(Y); $i > 1970; $i--) { 
+												echo "<option value='$i'>".$i."</option>";
+											}
+										?>
+									</select>
+								</td>
 							</tr>
 						</table>
 					</div>

@@ -15,16 +15,20 @@
 			if($imageFileType != "jpg" && $imageFileType != "JPG" && $imageFileType != "jpeg"
 			&& $imageFileType != "png" && $imageFileType != "PNG" && $imageFileType != "GIF"
 			&& $imageFileType != "gif" && $imageFileType != "bmp" && $imageFileType != "BMP") {
-			    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			    $response['error'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 			}else{
-			    if (move_uploaded_file($_FILES["project_images"]["tmp_name"][$key], $target_file)) {
-			    	$dataSet[$key] = array('image_name' => basename($_FILES["project_images"]["name"][$i]));
-			    } else {
-			        echo "Sorry, there was an error uploading your file.";
-			    }
+				if (file_exists($target_file)) {
+				    $response['error'] = "Sorry, file already exists.";
+				}else{
+				    if (move_uploaded_file($_FILES["project_images"]["tmp_name"][$key], $target_file)) {
+				    	$dataSet[$key] = array('image_name' => basename($_FILES["project_images"]["name"][$i]));
+				    } else {
+				        $response['error'] = "Sorry, there was an error uploading your file.";
+				    }
+				}
 			}
-	    }else {
-	        echo "File is not an image.";
+	    }else{
+	        $response['error'] = "File is not an image.";
 	    }
 
 	    $i++;

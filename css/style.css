@@ -668,6 +668,7 @@ textarea{
 
 /*TABLE DESIGN*/
 .tbl-design table{
+	width: 100%;
 	border: 1px #fff solid;
 }
 .tbl-design table td{
@@ -730,5 +731,6 @@ textarea{
 	background: #B52929;
 	cursor: pointer;
 }
-
-/*SUMMERNOTE*/
+.c-hide{
+	display: none;
+}

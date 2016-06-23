@@ -21,3 +21,16 @@ function clear_message_box()
 	$('#messagebox_2').removeClass().html('');
 	$('#messagebox_3').removeClass().html('');
 }
+
+function isEmpty(str) 
+{
+    return (!str || 0 === str.length);
+}
+function isBlank(str) 
+{
+    return (!str || /^\s*$/.test(str));
+}
+String.prototype.isEmpty = function() 
+{
+    return (this.length === 0 || !this.trim());
+};

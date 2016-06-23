@@ -37,9 +37,9 @@
 			
 			$sql = "INSERT INTO
 							`projects` 
-							(`user_id`, `project_name`, `project_description`, `is_active`, `is_show`, `category_id`, `year_established`, `date_created`) 
+							(`user_id`, `project_name`, `project_description`, `is_active`, `is_show`, `category_id`, `year_established`, `date_created`, `date_modified`) 
 						VALUES 
-							('$user_id', '$project_name', '$project_description', '1', '1', '$category_id', '$year_established', now());";
+							('$user_id', '$project_name', '$project_description', '1', '1', '$category_id', '$year_established', now(), now());";
 
 			mysqli_query($conn, $sql);
 
@@ -54,7 +54,7 @@
 							`project_images` 
 							(`project_id`, `filename`) 
 						VALUES 
-							('$latest_project_id', 'PI_$value')";
+							('$latest_project_id', '$value')";
 
 		 		mysqli_query($conn, $sql);
 			}
