@@ -34,7 +34,7 @@ $(function(){
 				}
 				else{
 					$("#messagebox_2").addClass('lblmsg success dark').html('Connected!').promise().done(function(){
-						window.location.href = "home.php";
+						window.location.href = "page_manager.php";
 					});
 				}
 			}       
