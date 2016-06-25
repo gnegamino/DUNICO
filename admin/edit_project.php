@@ -9,16 +9,7 @@
 	$full_name = $_SESSION['full_name'];
 	$_SESSION['project_id'] = $_GET['project_id'];
 ?>
-<body class="admin">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="header-credentials clearfix">
-				<div class="pull-right">
-					Welcome, <?php echo $full_name; ?>
-				</div>
-			</div>
-		</div>
-	</div>
+<?php require_once('templates/admin_header.php'); ?>
 	<div class="container">
 		<?php require_once('templates/admin_sidebar_logo.php'); ?>
 		<div class="row">

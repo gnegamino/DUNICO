@@ -110,6 +110,9 @@ select option{
 .i-red{
 	color: #ff2828;
 }
+.i-red.dark{
+	color: #8E1616;
+}
 .hidden-logo{
 	position: absolute;
 	left: 98px;
@@ -624,10 +627,15 @@ h2{
 .header-credentials{
 	border-bottom: 2px #fff solid;
 	background: rgba(8,8,8,0.6);
-	padding: 5px 8px;
-	font-size: 16px;
+	font-size: 14px;
 	color: #fff;
 }
+.header-credentials button{
+	border-radius: 0px;
+	border: none;
+	margin-left: 8px;
+}
+
 .tbl-layout td{
 	padding: 3px;
 	color: #fff;
@@ -678,6 +686,15 @@ textarea{
 	background: #fff;
 	text-shadow: none;
 }
+.tbl-design.inverse table{
+	border: 1px #222 solid;
+}
+.tbl-design.inverse .tableheader{
+	background: #222;
+}
+.tbl-design.inverse .tableheader td{
+	color: #fff;
+}
 .tbl-design .tableheader td{
 	color: #222;
 	font-family: Lato-Regular;
@@ -685,6 +702,9 @@ textarea{
 .tbl-design .tablerow td{
 	vertical-align: top;
 	color: #fff;
+}
+.tbl-design.inverse td{
+	color: #222;
 }
 .tbl-design .tablerow:hover{
 	background: #c98134;
@@ -733,4 +753,39 @@ textarea{
 }
 .c-hide{
 	display: none;
+}
+.modal-title{
+	color: #fff;
+}
+
+
+/*FEATURED IMAGES MODAL*/
+#featuredImagesModal .modal-body{
+	padding: 0px 0px 15px 0px;
+}
+#featuredImagesModal .a-project-image img{
+	width: 140px;
+	height: 100px;
+}
+#featuredImagesModal .a-project-image{
+	box-shadow: initial;
+	position: relative;
+}
+#featuredImagesModal .a-project-image input[type="checkbox"]{
+	position: absolute;
+	right: -1px;
+	top: -5px;
+}
+#featuredImagesModal .project-name{
+	font-size: 16px;
+	text-align: left;
+	text-transform: uppercase;
+	padding: 15px 0px 15px 15px;
+	font-family: Lato-Bold;
+	width: 100%;
+	float: left;
+}
+#featuredImagesModal hr{
+	margin-top: 0px;
+	margin-bottom: 0px;
 }

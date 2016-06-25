@@ -13,6 +13,9 @@ $(function(){
 	load_services();
 	load_about();
 	load_contact();
+	// load_featured_images();
+	// load_all_project_images();
+
 
 	$(document).on('click', '.edit', function(){
 		var panelToEdit = $(this).attr('class').split(' ')[3];
@@ -114,6 +117,40 @@ $(function(){
 	});
 });
 
+// TO BE FOLLOWED
+// function load_all_project_images()
+// {
+// 	var arr = {
+// 		fnc : 'load_all_project_images'
+// 	};
+
+// 	$.ajax(backstage, {
+// 		type: 'POST',
+// 		dataType: 'JSON',
+// 		data: 'data=' + JSON.stringify(arr),
+// 		success: function(response) {
+// 			var x, projectName = '', projectImages = '';
+// 			var imageIds = []; 
+
+// 			for(x in response.project_images){
+// 				console.log(response.project_images[x][response.project_images[x].length].image_id);
+// 			}
+
+// 			// for(x in response.project_images){
+// 			// 	projectImages += '<div class="project-name">'+ x +'</div>';
+// 			// 	projectImages += '<hr>';
+// 			// 	for (var i = 0 ; i <= response.project_images[x].length - 1; i++) {
+// 			// 		projectImages += '<div class="a-project-image">';
+// 			// 		projectImages += '<img src="../arch/'+ response.project_images[x][imageIds[i]][i] +'">';
+// 			// 		projectImages += '<input data-image-id="" type="checkbox">';
+// 			// 		projectImages += '</div>';
+// 			// 	}
+// 			// }
+
+// 			// $('#all_project_images').html(projectImages);
+// 		}
+// 	});
+// }
 
 function load_home()
 {

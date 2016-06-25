@@ -5,16 +5,7 @@
 	$user_id = $_SESSION['user_id'];
 	$full_name = $_SESSION['full_name'];
 ?>
-<body class="admin">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="header-credentials clearfix">
-				<div class="pull-right">
-					Welcome, <?php echo $full_name; ?>
-				</div>
-			</div>
-		</div>
-	</div>
+<?php require_once('templates/admin_header.php'); ?>
 	<div class="container">
 		<?php require_once('templates/admin_sidebar_logo.php'); ?>
 		<div class="row">
@@ -26,9 +17,9 @@
 					<div class="heading-title">
 						My Profile
 					</div>
-					<div class="content-split clearfix">
-						<img src="userpic/gian.jpg" class="userpic">
-						<table class="tbl-layout pull-left marg left">
+					<div class="content-split">
+						<!-- <img src="userpic/gian.jpg" class="userpic"> -->
+						<table class="tbl-layout">
 							<tr>
 								<td>First Name:</td>
 								<td width="260px"><input type="text" id="first_name" class="form-control"></td>

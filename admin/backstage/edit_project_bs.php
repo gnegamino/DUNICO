@@ -88,7 +88,7 @@
 			$category_id = mysqli_real_escape_string($conn, $category_id);
 			$year_established = mysqli_real_escape_string($conn, $year_established);
 
-			echo $sql = "UPDATE 
+			$sql = "UPDATE 
 						`projects` 
 					SET 
 						`project_name`='$project_name', 

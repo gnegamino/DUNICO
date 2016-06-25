@@ -12,12 +12,12 @@ $(function(){
 	    if (e.target.type == "checkbox") {
 	        e.stopPropagation();
 	    }else{
-	    	if($("#switch_projects").val() == 'View Archived Projects'){
+	    	// if($("#switch_projects").val() == 'View Archived Projects'){
 				var project_id = $(this).find('.tdprojectchkbx input:checkbox').val();
 				window.location.href = "edit_project.php?project_id=" + project_id;
-			}else{
-				return;
-			}
+			// }else{
+			// 	return;
+			// }
 	    }
 	});
 
@@ -29,28 +29,71 @@ $(function(){
 	});
 
 	$("#search").click(function(){
-		if($("#switch_projects").val() == 'View Archived Projects')
-			select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val(), 1);
-		else
-			select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val(), 0);
+		// if($("#switch_projects").val() == 'View Archived Projects')
+			select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val());
+		// else
+		// 	select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val(), 0);
 	});
 
 	$("#create_new_project").click(function(){
 		window.location.href = "create_new_project.php";
 	});
 
-	$("#activate_selected, #deactivate_selected, #delete_selected, #restore_selected").click(function(){
+	$("#delete_selected").click(function(){
+		if($('#tbl .tablerow input:checkbox:checked').length){
+			var arr = [];
+
+			$('#tbl .tablerow input:checkbox:checked').each(function(){
+				arr.push($(this).val());
+			});	
+
+			$('#projects_tobedeleted').val(arr);
+			$('#deleteProjects').modal('show');
+
+		}else
+			alert('Please check at least one checkbox!');
+	});
+
+	$('#btn_password').click(function(){
+		var password_str = $("#password_str").val();
+		var projects_tobedeleted = $('#projects_tobedeleted').val().split(',');
+
+		if(password_str.isEmpty())
+			$('#deleteProjects #messagebox').removeClass().addClass('lblmsg danger').html('Please enter your password!');
+		else{
+			var request = {
+				fnc : 'check_user_password',
+				password_str : password_str,
+				projects_tobedeleted : projects_tobedeleted
+			};
+
+			$.ajax(backstage, {
+				type: 'POST',
+				dataType: 'JSON',
+				data: 'data=' + JSON.stringify(request),
+				success: function(response) {
+					if(response.error == ''){
+						$('#deleteProjects #messagebox').html("");
+						alert("The selected projects has been successfully deleted!");
+						$('#deleteProjects').modal('hide');
+						select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val());
+					}else{
+						$('#deleteProjects #messagebox').removeClass().addClass('lblmsg danger').html(response.error);
+					}
+				}  
+			});
+		}
+	});
+
+	$("#activate_selected, #deactivate_selected").click(function(){
 
 		var buttonMethod = '';
 
 		if($(this).attr('id') == 'activate_selected') 
 			buttonMethod = 'activate' 
-		else if($(this).attr('id') == 'deactivate_selected')
+		else 
 			buttonMethod = 'deactivate'; 
-		else if($(this).attr('id') == 'delete_selected')
-			buttonMethod = 'delete';
-		else
-			buttonMethod = 'restore';
+	
 
 		if($('#tbl .tablerow input:checkbox:checked').length){
 			var arr = [];
@@ -72,35 +115,35 @@ $(function(){
 				success: function(response) {
 					alert('Successfully ' + buttonMethod + 'd the changes!');
 					
-					if($("#switch_projects").val() == 'View Archived Projects')
-						select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val(), 1);
-					else
-						select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val(), 0);
+					// if($("#switch_projects").val() == 'View Archived Projects')
+						select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val());
+					// else
+					// 	select_data($("#search_str").val(), $("#sort_by").val(), $("#sort_row").val(), 0);
 				}  
 			});
 		}else
 			alert('Please check at least one checkbox!');
 	});
 
-	$('#switch_projects').click(function(){
-		if($(this).val() == 'View Archived Projects'){
-			$("#activate_selected, #deactivate_selected, #delete_selected").prop('disabled', true);
-			$("#restore_selected").show();
-			$(this).val('View Active Projects');
-			select_data("", $("#sort_by").val(), 'DESC', 0);
-		}else{
-			$("#activate_selected, #deactivate_selected, #delete_selected").prop('disabled', false);
-			$("#restore_selected").hide();
-			$(this).val('View Archived Projects');
-			select_data("", $("#sort_by").val(), 'DESC', 1);
-		}
-	});
+	// $('#switch_projects').click(function(){
+	// 	if($(this).val() == 'View Archived Projects'){
+	// 		$("#activate_selected, #deactivate_selected, #delete_selected").prop('disabled', true);
+	// 		$("#restore_selected").show();
+	// 		$(this).val('View Active Projects');
+	// 		select_data("", $("#sort_by").val(), 'DESC', 0);
+	// 	}else{
+	// 		$("#activate_selected, #deactivate_selected, #delete_selected").prop('disabled', false);
+	// 		$("#restore_selected").hide();
+	// 		$(this).val('View Archived Projects');
+	// 		select_data("", $("#sort_by").val(), 'DESC', 1);
+	// 	}
+	// });
 });
 
-function select_data(search_str, sort, sort_row, switch_mode) {
+function select_data(search_str, sort, sort_row) {
 	search_str = (typeof search_str !== 'undefined') ? search_str : '';
 	sort_row = (typeof sort_row !== 'undefined') ? sort_row : 'DESC';
-	switch_mode = (typeof switch_mode !== 'undefined') ? switch_mode : 1;
+	// switch_mode = (typeof switch_mode !== 'undefined') ? switch_mode : 1;
 	sort = (sort == 'status') ? 'is_active' : sort;
 
 	var arr = {
@@ -108,7 +151,7 @@ function select_data(search_str, sort, sort_row, switch_mode) {
 		search_str : search_str,
 		sort : sort,
 		sort_row : sort_row,
-		switch_mode : switch_mode
+		// switch_mode : switch_mode
 	};
 
 	$.ajax(backstage, {

@@ -109,7 +109,7 @@ $(function(){
 				dataType: 'JSON',
 				data: 'data=' + JSON.stringify(request),
 				success: function(response) {
-
+					$('#messagebox').removeClass().addClass('lblmsg success').html("Successfully updated the changes!");
 				}  
 			});
 		}else{

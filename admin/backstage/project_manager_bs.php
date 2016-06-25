@@ -12,6 +12,45 @@
 	$response['error'] = '';
 	
 	switch ($fnc) {
+		case 'check_user_password':
+			$sql = "SELECT 
+	 				`user_id`, 
+	 				`first_name`,
+	 				`last_name`
+	 			FROM
+	 				users
+	 			WHERE
+	 				`pass_word` = '$password_str'
+	 			AND
+	 				`user_id` = $user_id
+	 			";
+
+	 		$result = mysqli_query($conn, $sql);
+ 			$row = mysqli_fetch_assoc($result);
+
+	 		if (mysqli_num_rows($result) > 0){
+
+	 			for ($i=0; $i < count($projects_tobedeleted); $i++) { 
+
+	 				$sql = "SELECT PI.`filename` FROM `project_images` AS PI WHERE PI.`project_id` = '$projects_tobedeleted[$i]'";
+	 				$result = mysqli_query($conn, $sql);
+
+ 					while ($row = mysqli_fetch_assoc($result)){
+	 					unlink('../../arch/'.$row['filename']);
+	 				}
+	 			}
+
+	 			for ($i=0; $i < count($projects_tobedeleted); $i++) { 
+	 				$sql = "DELETE FROM `project_images` WHERE `project_id` = $projects_tobedeleted[$i]";
+	 				mysqli_query($conn, $sql);
+	 				$sql = "DELETE FROM `projects` WHERE `project_id` = $projects_tobedeleted[$i]";
+	 				mysqli_query($conn, $sql);
+	 			}
+	 		}
+	 		else
+	 			$response['error'] = "Invalid credentials!";
+	 		break;
+
 		case 'select_data':
 			if($search_str != ""){
 				$search_str = mysqli_real_escape_string($conn, $search_str);
@@ -20,7 +59,7 @@
 				$like_clause = '';
 
 
-			$is_show = ($switch_mode == 1) ? '1' : '0';
+			// $is_show = ($switch_mode == 1) ? '1' : '0';
 
 			$sql = "SELECT 
 					    project_id,
@@ -35,8 +74,6 @@
 					    `projects_category` AS PC
 					ON 
 						P.`category_id` = PC.`category_id`
-					WHERE
-						P.`is_show` = $is_show
 					AND
 						P.`user_id` = $user_id $like_clause ORDER BY $sort $sort_row";
 
@@ -90,7 +127,7 @@
 
 					$result = mysqli_query($conn, $sql);
 				}
-			}else if($method == 'delete'){
+			}else{
 				foreach ($arr_status as $value) {
 					$sql = "UPDATE 
 								`db_dunico`.`projects` 
@@ -104,21 +141,22 @@
 
 					$result = mysqli_query($conn, $sql);
 				}
-			}else{
-				foreach ($arr_status as $value) {
-					$sql = "UPDATE 
-								`db_dunico`.`projects` 
-							SET 
-								`is_show`='1',
-								`is_active`='1'  
-							WHERE 
-								`project_id`='$value' 
-							AND
-								user_id = $user_id";
-
-					$result = mysqli_query($conn, $sql);
-				}
 			}
+			// else{
+			// 	foreach ($arr_status as $value) {
+			// 		$sql = "UPDATE 
+			// 					`db_dunico`.`projects` 
+			// 				SET 
+			// 					`is_show`='1',
+			// 					`is_active`='1'  
+			// 				WHERE 
+			// 					`project_id`='$value' 
+			// 				AND
+			// 					user_id = $user_id";
+
+			// 		$result = mysqli_query($conn, $sql);
+			// 	}
+			// }
 			break; 
 		default:
 			$response['error'] = 'Invalid arguments!';

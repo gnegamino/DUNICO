@@ -9,8 +9,8 @@ $(function(){
 		var new_password = $('#new_password').val();
 		var confirm_password = $('#confirm_password').val();
 
-		if(!new_password || !confirm_password)
-			build_message_box('messagebox_1', "Please complete the fields!", 'danger');
+		if(new_password.isEmpty() || confirm_password.isEmpty())
+			build_message_box('messagebox_1', "Please complete all of the fields!", 'danger');
 		else if (new_password !== confirm_password)
 			build_message_box('messagebox_1', "Passwords do not match!", 'danger');
 		else if (new_password.length <= 7 || confirm_password.length <= 7)
@@ -21,7 +21,12 @@ $(function(){
 
 	$('#update_profile').click(function(){
 		clear_message_box();
-		update_profile();
+
+		if( $('#first_name').val().isEmpty() ||
+		 	$('#last_name').val().isEmpty()){
+			build_message_box('messagebox_2', "Please complete all of the fields!", 'danger');
+		}else	
+			update_profile();
 	});
 });
 
