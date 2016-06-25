@@ -32,8 +32,8 @@
 			</button>
 			<a class="navbar-brand" href="index.php">
 				<div class="dunico-logo">
-					<img src="img/dunico.png">
-					<div>dun<span>i</span>co</div>
+					<img src="img/unico-white.png">
+					<div>un<span>i</span>co</div>
 				</div>
 			</a>
 	    </div>
@@ -50,8 +50,8 @@
 </nav>
 <a href="index.php">
 	<div class="hidden-logo">
-		<img src="img/dunico.png">
-		<div>dun<span class="i-red">i</span>co</div>
+		<img src="img/unico-white.png">
+		<div>un<span class="i-red">i</span>co</div>
 	</div>
 </a>
 <div class="hide-menu">
