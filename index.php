@@ -27,7 +27,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<img src="arch/EXECUTIVE BOARDROOM.jpg">
+							<img src="arch/HSJR DRESSING AREA.jpg">
 							<div class="carousel-caption">
 							</div>
 						</div>

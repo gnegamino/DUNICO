@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `db_dunico` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `db_dunico`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
--- Host: localhost    Database: db_dunico
+-- Host: 127.0.0.1    Database: db_dunico
 -- ------------------------------------------------------
--- Server version	5.5.27
+-- Server version	5.6.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -41,7 +39,7 @@ CREATE TABLE `page_about` (
 
 LOCK TABLES `page_about` WRITE;
 /*!40000 ALTER TABLE `page_about` DISABLE KEYS */;
-INSERT INTO `page_about` VALUES (1,'D`UNICO','Francis Arollado','<p>D`UN<font color=\"#FF0000\">I</font>CO is a design studio that caters multidisciplinary practice in hospitality, resort planning, corporate, residential, commercial interior and architectural design services both domestic and international.<br><br>Our ability to span across different scales and levels of complexity is evidenced by our portfolio of work ranging from  sizable space, buildings and complex development - each requiring the coordination our talented multidisciplinary teams. Our team are composed of young talented designers and architects which we shared common commitment and passion in design. Our passion, drive and focus on unique solution are established on client needs, environment and social requirements. <br><br>Our values reflect our commitment in providing with you a distinctive experience that harmonize unique architecture which embodies with one goal in mind - creative process, efficient space, unparalleled idea, clean lines and forms.</p>','<p>An Architect with diverse experience in Architecture and Interior Design focusing in multidisciplinary design services in hospitality, resort planning, corporate, residential and  commercial design for  over 20 years. He spends most of his design practice in Singapore and Asia Pacific.<br><br>His international expertise in hospitality and corporate design was gained through 16 years of work experience from prestigious and top design firm in Singapore. He was  Project Architect at Bent Severin, Design Manager at Premas International, Design Manager at Ong &amp; Ong Architects Ltd, Design Principal at HBO   EMTB and during his stay with these firms, he designed enormous number of high profile hotel and corporate projects in Singapore and Asia Pacific such as Apollo Hotel Singapore, Colombo Hotel Sri Lanka, Vakarufalhi Resort Maldives, numerous DBS Bank corporate offices, Yahoo Regional Office Singapore, BHP Billiton China, CWT Head Office Singapore and other corporate offices. <br><br>His domestic projects completed are SMDC head office at MOA, City of Dreams Office at MOA, TaskUs Offices at BGC, Lexmark Offices at Cebu, Canon Offices at BGC, DSM office at BGC, Nestle Head Office at Rockwell, Chevron Office at Makati.<br><br>His detailed quality management practice is embedded by ISO Quality Standards and Six Sigma management tools thus, deliver \nunparalleled systematic and documented approach and combined with unique design, technical expertise and project management on every phases of project - from inception, programming,  schematic design, design presentation, design development, contract documentation, project implementation and handover of the project to all completed projects.<br><br>Founder of D`UN<font color=\"#FF0000\">I</font>CO design studio.</p>');
+INSERT INTO `page_about` VALUES (1,'D`UNICO','Francis Arollado','<p>D`UN<font color=\"#FF0000\">I</font>CO is a design studio that caters multidisciplinary practice in hospitality, resort planning, corporate, residential, commercial interior and architectural design services both domestic and international. <br><br>Our ability to span across different scales and levels of complexity is evidenced by our portfolio of work ranging from  sizable space, buildings and complex development - each requiring the coordination our talented multidisciplinary teams. Our team are composed of young talented designers and architects which we shared common commitment and passion in design. Our passion, drive and focus on unique solution are established on client needs, environment and social requirements. <br><br>Our values reflect our commitment in providing with you a distinctive experience that harmonize unique architecture which embodies with one goal in mind - creative process, efficient space, unparalleled idea, clean lines and forms.</p>','<p>An Architect with diverse experience in Architecture and Interior Design focusing in multidisciplinary design services in hospitality, resort planning, corporate, residential and  commercial design for  over 20 years. He spends most of his design practice in Singapore and Asia Pacific.<br><br>His international expertise in hospitality and corporate design was gained through 16 years of work experience from prestigious and top design firm in Singapore. He was  Project Architect at Bent Severin, Design Manager at Premas International, Design Manager at Ong &amp; Ong Architects Ltd, Design Principal at HBO   EMTB and during his stay with these firms, he designed enormous number of high profile hotel and corporate projects in Singapore and Asia Pacific such as Apollo Hotel Singapore, Colombo Hotel Sri Lanka, Vakarufalhi Resort Maldives, numerous DBS Bank corporate offices, Yahoo Regional Office Singapore, BHP Billiton China, CWT Head Office Singapore and other corporate offices. <br><br>His domestic projects completed are SMDC head office at MOA, City of Dreams Office at MOA, TaskUs Offices at BGC, Lexmark Offices at Cebu, Canon Offices at BGC, DSM office at BGC, Nestle Head Office at Rockwell, Chevron Office at Makati.<br><br>His detailed quality management practice is embedded by ISO Quality Standards and Six Sigma management tools thus, deliver \nunparalleled systematic and documented approach and combined with unique design, technical expertise and project management on every phases of project - from inception, programming,  schematic design, design presentation, design development, contract documentation, project implementation and handover of the project to all completed projects.<br><br>Founder of D`UN<font color=\"#FF0000\">I</font>CO design studio.</p>');
 /*!40000 ALTER TABLE `page_about` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +84,7 @@ CREATE TABLE `page_home` (
   `motto_content` varchar(9999) DEFAULT NULL,
   PRIMARY KEY (`content_id`),
   UNIQUE KEY `page_content_id_UNIQUE` (`content_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,9 +133,10 @@ CREATE TABLE `project_images` (
   `image_id` int(5) NOT NULL AUTO_INCREMENT,
   `project_id` int(5) DEFAULT NULL,
   `filename` varchar(255) DEFAULT NULL,
+  `is_featured` int(1) DEFAULT '0',
   PRIMARY KEY (`image_id`),
   UNIQUE KEY `image_id_UNIQUE` (`image_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +145,6 @@ CREATE TABLE `project_images` (
 
 LOCK TABLES `project_images` WRITE;
 /*!40000 ALTER TABLE `project_images` DISABLE KEYS */;
-INSERT INTO `project_images` VALUES (1,1,'CUSTOMER SERVICE AREA.jpg'),(2,1,'16F RECEPTION.jpg'),(3,2,'BOARD ROOM R1.jpg'),(4,3,'EXECUTIVE BOARDROOM.jpg');
 /*!40000 ALTER TABLE `project_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,15 +159,16 @@ CREATE TABLE `projects` (
   `project_id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(5) NOT NULL,
   `project_name` varchar(255) DEFAULT NULL,
-  `project_description` varchar(255) DEFAULT NULL,
+  `project_description` varchar(9999) DEFAULT NULL,
   `is_active` int(1) DEFAULT '0',
   `is_show` int(1) DEFAULT '0',
   `category_id` int(5) DEFAULT NULL,
   `year_established` int(5) DEFAULT NULL,
   `date_created` datetime DEFAULT NULL,
+  `date_modified` datetime DEFAULT NULL,
   PRIMARY KEY (`project_id`),
   UNIQUE KEY `project_id_UNIQUE` (`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +177,6 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,1,'ISLA PANDAN RESORT, Palawan','Isla Pandan Resort is one of the busiest Island at Honda Bay, Palawan that rejuvenated with modern tropical design using indigenous materials such as bamboo. The design aim is to create a magical and fantasy experience to customer and captured the middle ',0,1,1,2015,'0000-00-00 00:00:00'),(2,1,'SMDC HQ OFFICE, Philippines','The biggest property developer in the Philippines, These new office consolidation caters for more than 5000 staff with a massive floor area of 20,000 square meter. Design is  modern sleek office that represents companies corporate image and prestige as th',0,1,2,2015,'0000-00-00 00:00:00'),(3,1,'YAHOO HQ OFFICE, Singapore','Young, vibrant and fun concept was main driver of creativity for the new Headquarter of Yahoo in Asia. Innovative workplace solution was created to encourage collaboration among staff for more productive working environment.',0,1,3,2015,'0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,11 +188,11 @@ DROP TABLE IF EXISTS `projects_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `projects_category` (
-  `category_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `category_id_UNIQUE` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,7 +201,6 @@ CREATE TABLE `projects_category` (
 
 LOCK TABLES `projects_category` WRITE;
 /*!40000 ALTER TABLE `projects_category` DISABLE KEYS */;
-INSERT INTO `projects_category` VALUES (1,'Hospitality & Residential'),(2,'Corporate'),(3,'Architecture'),(4,'Summer');
 /*!40000 ALTER TABLE `projects_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,7 +231,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Gian Carlo','Egamino','gnegamino','gian1234','#U3226, Tower 3, Grass Residences, Quezon City','9164229926','gnegamino@gmail.com','gnegamz.site88.net');
+INSERT INTO `users` VALUES (1,'Gian Carlo','Egamino','gnegamino','enigma123','#U3226, Tower 3, Grass Residences, Quezon City','9164229926','gnegamino@gmail.com','gnegamz.site88.net');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -247,4 +244,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-21 20:48:18
+-- Dump completed on 2016-06-25 20:43:25
