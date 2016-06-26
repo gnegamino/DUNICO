@@ -233,7 +233,7 @@ function save_home()
 	var arr = {
 		fnc : 'save_home',
 		motto_caption : $('#motto_caption').val(),
-		motto_content : $('#motto_content').summernote('code')	
+		motto_content : encodeURIComponent($('#motto_content').summernote('code'))
 	};
 
 	$.ajax(backstage, {
@@ -253,7 +253,8 @@ function save_services()
 {
 	var arr = {
 		fnc : 'save_services',
-		our_services : $('#our_services').summernote('code')
+		our_services : encodeURIComponent($('#our_services').summernote('code'))
+
 	};
 
 	$.ajax(backstage, {
@@ -275,8 +276,8 @@ function save_about()
 		fnc : 'save_about',
 		company_name : $('#company_name').val(),
 		founder_name : $('#founder_name').val(),
-		our_profile : $('#our_profile').summernote('code').replace('&', '%26'),
-		our_founder : $('#our_founder').summernote('code').replace('&', '%26')
+		our_profile : encodeURIComponent($('#our_profile').summernote('code')),
+		our_founder : encodeURIComponent($('#our_founder').summernote('code'))
 	};
 
 	$.ajax(backstage, {

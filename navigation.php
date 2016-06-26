@@ -33,7 +33,7 @@
 			<a class="navbar-brand" href="index.php">
 				<div class="dunico-logo">
 					<img src="img/unico-white.png">
-					<div>un<span>i</span>co</div>
+					<div>D' UN<span>I</span>CO</div>
 				</div>
 			</a>
 	    </div>
