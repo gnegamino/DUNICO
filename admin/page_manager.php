@@ -145,7 +145,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- <div class="content-split">
+					<div class="content-split">
 						<div class="row">
 							<div class="a-secondary-title clearfix">
 								<div class="pull-left">
@@ -163,7 +163,7 @@
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,9 @@
 	switch ($fnc) {
 		case 'load_all_project_images':
 
-			$sql = "SELECT PI.`image_id`, P.`project_name`, P.`project_name`, PI.`filename`
+			$sql = "SELECT 
+						PI.`image_id`, P.`project_name`, P.`project_name`, PI.`filename`,
+						P.`project_id`
 					FROM `project_images` AS PI
 					LEFT JOIN `projects` AS P
 					ON PI.`project_id` = P.`project_id`";
@@ -20,12 +22,13 @@
 			$result = mysqli_query($conn, $sql);
 			$i = 0;
 
+			$projects = [];
+
  			while($row = mysqli_fetch_assoc($result)){
- 				$image_ids[] = $row['image_id'];
  				$projects[$row['project_name']][] = [ 
  														'image_id' => $row['image_id'],
  														'filename' => $row['filename']
- 												];
+ 													];
  			}
 
  			$response['project_images'] = $projects;

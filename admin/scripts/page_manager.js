@@ -14,7 +14,7 @@ $(function(){
 	load_about();
 	load_contact();
 	// load_featured_images();
-	// load_all_project_images();
+	load_all_project_images();
 
 
 	$(document).on('click', '.edit', function(){
@@ -118,39 +118,36 @@ $(function(){
 });
 
 // TO BE FOLLOWED
-// function load_all_project_images()
-// {
-// 	var arr = {
-// 		fnc : 'load_all_project_images'
-// 	};
+function load_all_project_images()
+{
+	var arr = {
+		fnc : 'load_all_project_images'
+	};
 
-// 	$.ajax(backstage, {
-// 		type: 'POST',
-// 		dataType: 'JSON',
-// 		data: 'data=' + JSON.stringify(arr),
-// 		success: function(response) {
-// 			var x, projectName = '', projectImages = '';
-// 			var imageIds = []; 
+	$.ajax(backstage, {
+		type: 'POST',
+		dataType: 'JSON',
+		data: 'data=' + JSON.stringify(arr),
+		success: function(response) {
+			
+			var projectImagesString = '';
 
-// 			for(x in response.project_images){
-// 				console.log(response.project_images[x][response.project_images[x].length].image_id);
-// 			}
+			$.each(response.project_images, function(key, array){
+				projectImagesString += '<div class="project-name">'+ key +'</div>';
+				projectImagesString += '<hr>';
 
-// 			// for(x in response.project_images){
-// 			// 	projectImages += '<div class="project-name">'+ x +'</div>';
-// 			// 	projectImages += '<hr>';
-// 			// 	for (var i = 0 ; i <= response.project_images[x].length - 1; i++) {
-// 			// 		projectImages += '<div class="a-project-image">';
-// 			// 		projectImages += '<img src="../arch/'+ response.project_images[x][imageIds[i]][i] +'">';
-// 			// 		projectImages += '<input data-image-id="" type="checkbox">';
-// 			// 		projectImages += '</div>';
-// 			// 	}
-// 			// }
+				for (var i = 0; i < array.length; i++) {
+					projectImagesString += '<div class="a-project-image">';
+					projectImagesString += '<img src="../arch/'+ array[i].filename +'">';
+					projectImagesString += '<input data-image-id="' + array[i].image_id + '" type="checkbox">';
+					projectImagesString += '</div>';
+				}
+			});
 
-// 			// $('#all_project_images').html(projectImages);
-// 		}
-// 	});
-// }
+			$('#all_project_images').html(projectImagesString);
+		}
+	});
+}
 
 function load_home()
 {
