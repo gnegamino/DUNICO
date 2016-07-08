@@ -805,9 +805,12 @@ textarea{
 	text-align: left;
 	text-transform: uppercase;
 	padding: 15px 0px 15px 15px;
+	margin-top: 15px;
 	font-family: Lato-Bold;
 	width: 100%;
 	float: left;
+	border-top: 1px #ddd solid;
+	border-bottom: 1px #ddd solid;
 }
 #featuredImagesModal hr{
 	margin-top: 0px;

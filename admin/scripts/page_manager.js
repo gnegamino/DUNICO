@@ -134,7 +134,6 @@ function load_all_project_images()
 
 			$.each(response.project_images, function(key, array){
 				projectImagesString += '<div class="project-name">'+ key +'</div>';
-				projectImagesString += '<hr>';
 
 				for (var i = 0; i < array.length; i++) {
 					projectImagesString += '<div class="a-project-image">';
