@@ -51,7 +51,7 @@
 <a href="index.php">
 	<div class="hidden-logo">
 		<img src="img/unico-white.png">
-		<div>un<span class="i-red">i</span>co</div>
+		<div>D' UN<span class="i-red">I</span>CO</div>
 	</div>
 </a>
 <div class="hide-menu">

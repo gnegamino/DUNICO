@@ -12,32 +12,38 @@
 						<li data-target="#featured" data-slide-to="2"></li>
 						<li data-target="#featured" data-slide-to="3"></li>
 						<li data-target="#featured" data-slide-to="4"></li>
+						<li data-target="#featured" data-slide-to="5"></li>
 					</ol>
 					
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img src="arch/HSSR OFFICE.jpg">
+							<img src="arch/FEAT - Blane Work Area Option 2 patch.jpg">
 							<div class="carousel-caption">
 							</div>
 						</div>
 						<div class="item">
-							<img src="arch/LOUNGE AREA R1.jpg">
+							<img src="arch/FEAT - CLARET OPTION 2 - VIEW 1.jpg">
 							<div class="carousel-caption">
 							</div>
 						</div>
 						<div class="item">
-							<img src="arch/HSJR DRESSING AREA.jpg">
+							<img src="arch/FEAT - EXTERIOR 2 B&W.jpg">
 							<div class="carousel-caption">
 							</div>
 						</div>
 						<div class="item">
-							<img src="arch/front 1.jpg">
+							<img src="arch/FEAT - SPA 1.jpg">
 							<div class="carousel-caption">
 							</div>
 						</div>
 						<div class="item">
-							<img src="arch/LOUNGE AREA R1.jpg">
+							<img src="arch/FEAT - yahoo-09.jpg">
+							<div class="carousel-caption">
+							</div>
+						</div>
+						<div class="item">
+							<img src="arch/FEAT - Reception-2b.jpg">
 							<div class="carousel-caption">
 							</div>
 						</div>
