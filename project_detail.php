@@ -2,8 +2,10 @@
 	include("header.php"); 
 	$project_id = $_GET['project_id'];
 ?>	
+	<input id="page_true" type="hidden" value="project_detail">
 	<input id="project_id" type="hidden" value="<?php echo $project_id; ?>">
 	<body class="hidden-overflow">
+		<div class="black-bg"></div>
 		<?php include("navigation.php"); ?>
 		<div class="backdrop">
 			<div class="container">

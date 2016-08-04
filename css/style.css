@@ -157,6 +157,7 @@ select option{
 }
 #featured .carousel-inner img{
 	width: 100%;
+	height: 100vh;
 }
 #featured .carousel-inner{
 	height: 100%;
@@ -164,7 +165,7 @@ select option{
 #featured .carousel-indicators{
 	position: fixed;
 	bottom: 20px;
-	z-index: 2;
+	z-index: 999;
 }
 #featured .carousel-inner .carousel-caption{
 	position: absolute;
@@ -390,6 +391,7 @@ h2{
 	font-family: Lato-Light;
 }
 #projects .p-sidebar ul{
+	padding-left: 19px;
 	list-style: none;
 }
 #projects .p-sidebar ul li{

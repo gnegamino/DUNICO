@@ -1,5 +1,8 @@
 <script type="text/javascript">
 	$(function(){
+		if($('#page_true').val() == 'project_detail')
+			$('.hidden-logo').hide();
+
 		$(".hide-menu", this).click(function(){
 			var status = $(".hide-menu span").html();
 
@@ -32,7 +35,7 @@
 			</button>
 			<a class="navbar-brand" href="index.php">
 				<div class="dunico-logo">
-					<img src="img/unico-white.png">
+					<img src="img/dunico-white.png">
 					<div>D' UN<span>I</span>CO</div>
 				</div>
 			</a>
@@ -50,7 +53,7 @@
 </nav>
 <a href="index.php">
 	<div class="hidden-logo">
-		<img src="img/unico-white.png">
+		<img src="img/dunico-white.png">
 		<div>D' UN<span class="i-red">I</span>CO</div>
 	</div>
 </a>
