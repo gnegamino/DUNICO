@@ -1,26 +1,17 @@
-<?php include("header.php"); ?>
+<?php 
+	include("header.php"); 
+	$project_id = $_GET['project_id'];
+?>	
+	<input id="page_true" type="hidden" value="project_detail">
+	<input id="project_id" type="hidden" value="<?php echo $project_id; ?>">
 	<body class="hidden-overflow">
+		<div class="black-bg"></div>
 		<?php include("navigation.php"); ?>
 		<div class="backdrop">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="featured-project">
-							<h1>ISLA PANDAN RESORT</h1>
-							<p>
-								Isla Pandan Resort is one of the busiest Island at Honda Bay, 
-								Palawan that rejuvenated with modern tropical design using indigenous 
-								materials such as bamboo. The design aim is to create a magical and fantasy 
-								experience to customer and captured the middle class growing family who likes 
-								island resort vacation.
-							</p>
-							<div class="pull-left p-previous">
-								<i class="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;Previous Project
-							</div>
-							<div class="pull-right p-next">
-								Next Project&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
-							</div>
-						</div>
+						<div class="featured-project"></div>
 					</div>
 				</div>
 			</div>

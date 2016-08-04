@@ -18,15 +18,18 @@
 	font-family: Lato-Black;
 	src: url(../fonts/Lato-Black.ttf);
 }
-*{
-	font-family: Lato-Light;
-	color: #fff;
+@font-face{
+	font-family: Futura-Light;
+	src: url(../fonts/Futura-Book-font.ttf);
 }
-h1, h2, h3, p, a, div{
+/*h1, h2, h3, p, a, div{
 	text-shadow: #000000 1px 1px 2px;
-}
+}*/
 body.hidden-overflow{
 	overflow: hidden;
+}
+body.admin{
+	background: #494949;
 }
 html{
 	height: 100%;
@@ -35,6 +38,15 @@ body{
 	height: 100%;
 	position: relative;
 	background: initial;
+	font-family: Lato-Light !important;
+}
+@media (min-width: 1200px){
+	.container.wide{
+		width: 1250px;
+	}
+}
+select option{
+	color: #222;
 }
 .seamless,
 .seamless-bg{
@@ -50,6 +62,31 @@ body{
 	left: 0;
 	right: 0;
 	z-index: 1;
+}
+.dunico-logo img{
+	width: 63px;
+	height: 50px;
+	margin-top: -15px;
+	float: left;
+}
+.dunico-logo div{
+	margin-left: 15px;
+	float: left;
+}
+.hidden-logo{
+	position: absolute;
+	left: 98px;
+	top: -16px;
+}
+.hidden-logo img{
+	width: 63px;
+	height: 50px;
+	margin-top: 0px;
+	float: left;
+}
+.hidden-logo div{
+	margin-left: 15px;
+	float: left;
 }
 #navigation.navbar{
 	border-radius: 0px;
@@ -85,23 +122,25 @@ body{
 	border-left: 1px solid #080808;
 }
 #navigation .navbar-header .navbar-brand,
-.hidden-logo{
+.hidden-logo,
+.a-logo{
 	font-size: 36px;
 	color: #fff;
 	font-weight: bold;
 	padding-top: 23px;
 	padding-bottom: 43px;
 	padding-left: 15px;
-	font-family: Lato-Regular;
+	font-family: Futura-Light;
+}
+.a-logo-lnk:hover{
+	text-decoration: none !important;
 }
 #navigation .navbar-header .navbar-brand span,
 .i-red{
 	color: #ff2828;
 }
-.hidden-logo{
-	position: absolute;
-	left: 98px;
-	top: -16px;
+.i-red.dark{
+	color: #8E1616;
 }
 .hide-menu{
 	border: 1px #101010 solid;
@@ -114,9 +153,11 @@ body{
 	font-size: 12px;
 	cursor: pointer;
 	z-index: 1500;
+	color: #fff;
 }
 #featured .carousel-inner img{
 	width: 100%;
+	height: 100vh;
 }
 #featured .carousel-inner{
 	height: 100%;
@@ -124,7 +165,7 @@ body{
 #featured .carousel-indicators{
 	position: fixed;
 	bottom: 20px;
-	z-index: 2;
+	z-index: 999;
 }
 #featured .carousel-inner .carousel-caption{
 	position: absolute;
@@ -137,6 +178,7 @@ body{
 	z-index: 2;
 	background: rgba(8,8,8,0.6);
 	padding: 20px 25px;
+	color: #fff;
 }
 #featured .company-caption h1{
 	margin-top: 10px;
@@ -271,6 +313,7 @@ h2{
 	margin-top: -10px;
 	margin-bottom: 25px;
 	font-family: Lato-Regular;
+	text-transform: uppercase;
 }
 #profile #our-profile p{
 	line-height: 1.8;
@@ -348,7 +391,8 @@ h2{
 	font-family: Lato-Light;
 }
 #projects .p-sidebar ul{
-	list-style: none;x
+	padding-left: 19px;
+	list-style: none;
 }
 #projects .p-sidebar ul li{
 	padding: 3px 0;
@@ -437,9 +481,11 @@ h2{
 /*Contact Information*/
 #contact h2{
 	font-size: 50px;
+	color: #fff;
 }
 #contact h3{
 	font-family: Lato-Regular;
+	text-transform: uppercase;
 }
 #contact .each-contact:first-child{
 	margin-top: 0;
@@ -447,6 +493,7 @@ h2{
 #contact .each-contact{
 	margin-top: 30px;
 	margin-left: 38px;
+	color: #fff;
 }
 #contact .each-contact table{
 	margin-left: 15px;
@@ -482,6 +529,7 @@ h2{
 	position: absolute;
 	top: 190px;
 	left: 120px;
+	color: #fff;
 }
 .featured-project h1{
 	font-size: 50px;
@@ -504,4 +552,269 @@ h2{
 	color: #ff9900;
 	cursor: pointer;
 	transition: 0.4s;
+}
+
+
+
+
+
+
+/*ADMINISTRATOR*/
+.login{
+	position: relative;
+	top: 150px;
+	z-index: 1000;
+	margin: 0 auto;
+	background: rgba(8,8,8,0.5);
+	border: 1px #222 solid;
+	width: 30%;
+	padding: 20px;
+}
+.login .logo{
+	text-align: center;
+	font-size: 36px;
+	color: #fff;
+	font-weight: bold;
+	font-family: Lato-Regular;
+}
+.login input{
+	font-size: 20px;
+	height: 50px;
+	margin-top: 15px;
+}
+.login button{
+	height: 50px;
+	margin-top: 15px;
+	font-size: 16px;
+}
+.lblmsg{
+	text-align: center;
+	font-size: 16px;
+	text-shadow: initial;
+}
+.lblmsg.danger{
+	color: #ff2828;
+}
+.lblmsg.success{
+	color: #b0ff28;
+}
+.lblmsg.success.dark{
+	color: green;
+}
+.a-sidebar,
+.a-maincontent{
+	border: 1px #222 solid;
+	background: rgba(8,8,8,0.6);
+}
+.a-sidebar a:hover{
+	text-decoration: none;
+}
+.a-sidebar a div{
+	padding: 10px 12px;
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #fff;
+}
+.a-sidebar a:hover div{
+	color: #222;
+	background: #fff;
+	text-shadow: initial;
+	transition: 0.4s;
+}
+.a-logo{
+	padding-left: 43px;
+	padding-bottom: 23px;
+}
+.a-maincontent{
+	padding: 15px;
+	margin-bottom: 15px;
+}
+.a-maincontent .heading-title{
+	font-size: 24px;
+	font-family: Lato-Regular;
+	text-transform: uppercase;
+	color: #fff;
+}
+.a-maincontent .a-secondary-title{
+	background: #FFDC44;
+	padding: 10px 15px;
+}
+.a-maincontent .a-secondary-title .pull-left{
+	font-size: 16px;
+	color: #222;
+	text-transform: uppercase;
+	text-shadow: initial;
+}
+.a-maincontent .a-secondary-title .pull-right .btn{
+	text-transform: uppercase;
+	font-family: Lato-Bold;
+	padding: 3px 8px;
+}
+.header-credentials{
+	border-bottom: 2px #fff solid;
+	background: rgba(8,8,8,0.6);
+	font-size: 14px;
+	color: #fff;
+}
+.header-credentials button{
+	border-radius: 0px;
+	border: none;
+	margin-left: 8px;
+}
+
+.tbl-layout td{
+	padding: 3px;
+	color: #fff;
+}
+.marg.top{
+	margin-top: 15px;
+}
+.marg.left{
+	margin-left: 15px;
+}
+.content-split{
+	margin-top: 15px;
+}
+.userpic{
+	width: 100px;
+	height: 100px;
+	padding: 3px;
+	background: #fff;
+	float: left;
+}
+textarea{
+	resize: none;
+}
+.modal-dialog .modal-header{
+	background: #222;
+	text-transform: uppercase;
+	font-family: Lato-Regular;
+}
+.modal-dialog .modal-body,
+.modal-dialog .modal-body .tbl-layout td{
+	color: #222;
+	text-shadow: none;
+}
+
+#change_password .modal-dialog{
+	width: 339px;
+}
+
+/*TABLE DESIGN*/
+.tbl-design table{
+	width: 100%;
+	border: 1px #fff solid;
+}
+.tbl-design table td{
+	padding: 7px;
+}
+.tbl-design .tableheader{
+	background: #fff;
+	text-shadow: none;
+}
+.tbl-design.inverse table{
+	border: 1px #222 solid;
+}
+.tbl-design.inverse .tableheader{
+	background: #222;
+}
+.tbl-design.inverse .tableheader td{
+	color: #fff;
+}
+.tbl-design .tableheader td{
+	color: #222;
+	font-family: Lato-Regular;
+}
+.tbl-design .tablerow td{
+	vertical-align: top;
+	color: #fff;
+}
+.tbl-design.inverse td{
+	color: #222;
+}
+.tbl-design .tablerow:hover{
+	background: #c98134;
+	cursor: pointer;
+}
+.tdprojectdescription{
+	width: 420px;
+}
+.form-control.inline{
+	width: auto;
+	display: inline-block;
+}
+#preview,
+#to_be_uploaded{
+	margin-top: -15px;
+	margin-left: -15px;
+	margin-bottom: 15px;
+	float: left;
+	width: 100%;
+}
+.a-project-image{
+	position: relative;
+	margin-top: 15px;
+	margin-left: 15px;
+	float: left;
+	border: 1px #222 solid;
+	box-shadow: #222 0px 3px 4px;
+	padding: 6px;
+	background: #fff;
+}
+.a-project-image img{
+	width: 174px;
+	height: 140.5px;
+}
+.a-project-image i{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: #F44242;
+	color: #fff;
+	padding: 3px;
+}
+.a-project-image i:hover{
+	background: #B52929;
+	cursor: pointer;
+}
+.c-hide{
+	display: none;
+}
+.modal-title{
+	color: #fff;
+}
+
+
+/*FEATURED IMAGES MODAL*/
+#featuredImagesModal .modal-body{
+	padding: 0px 0px 15px 0px;
+}
+#featuredImagesModal .a-project-image img{
+	width: 140px;
+	height: 100px;
+}
+#featuredImagesModal .a-project-image{
+	box-shadow: initial;
+	position: relative;
+}
+#featuredImagesModal .a-project-image input[type="checkbox"]{
+	position: absolute;
+	right: -1px;
+	top: -5px;
+}
+#featuredImagesModal .project-name{
+	font-size: 16px;
+	text-align: left;
+	text-transform: uppercase;
+	padding: 15px 0px 15px 15px;
+	margin-top: 15px;
+	font-family: Lato-Bold;
+	width: 100%;
+	float: left;
+	border-top: 1px #ddd solid;
+	border-bottom: 1px #ddd solid;
+}
+#featuredImagesModal hr{
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
