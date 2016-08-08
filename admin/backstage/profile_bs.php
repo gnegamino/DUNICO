@@ -17,7 +17,7 @@
 			$sql = "SELECT 
 				*
  			FROM
- 				`db_dunico`.`users`
+ 				`users`
  			WHERE
  				`user_id` = '".$user_id."'
  			LIMIT 1";
@@ -41,7 +41,7 @@
 		case 'update_password':
 
 			$sql = "UPDATE 
-				`db_dunico`.`users` 
+				`users` 
 			SET 
 				`pass_word`= '$new_password' 
 			WHERE 
@@ -54,7 +54,7 @@
 		case 'update_profile':
 
 			$sql = "UPDATE 
-					`db_dunico`.`users`
+					`users`
 				SET 
 					`first_name` = '$first_name', 
 					`last_name`= '$last_name', 

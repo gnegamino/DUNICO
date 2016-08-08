@@ -43,7 +43,7 @@
 			$sql = "SELECT 
 						filename 
 					FROM 	
-						db_dunico.project_images AS PI
+						project_images AS PI
 					WHERE 
 						PI.project_id = $project_id
 					";
@@ -81,7 +81,7 @@
 				$sql = "SELECT 
 							P.`project_id`
 						FROM
-							db_dunico.projects AS P
+							projects AS P
 						ORDER BY 
 							P.`project_id` DESC
 						LIMIT 1";

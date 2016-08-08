@@ -62,7 +62,7 @@
 			$sql = "SELECT 
 						filename 
 					FROM 
-						db_dunico.project_images 
+						project_images 
 					WHERE 
 						project_id = $project_id";
 
@@ -117,7 +117,7 @@
 				$value = mysqli_real_escape_string($conn, $value);
 
 				$sql = "INSERT INTO 
-							`db_dunico`.`project_images` 
+							`project_images` 
 							(`project_id`, `filename`) 
 						VALUES 
 							($project_id, '$value')";

@@ -104,7 +104,7 @@
 			if($method == 'activate'){
 				foreach ($arr_status as $value) {
 					$sql = "UPDATE 
-								`db_dunico`.`projects` 
+								`projects` 
 							SET 
 								`is_active`='1' 
 							WHERE 
@@ -117,7 +117,7 @@
 			}else if($method == 'deactivate'){
 				foreach ($arr_status as $value) {
 					$sql = "UPDATE 
-								`db_dunico`.`projects` 
+								`projects` 
 							SET 
 								`is_active`='0' 
 							WHERE 
@@ -130,7 +130,7 @@
 			}else{
 				foreach ($arr_status as $value) {
 					$sql = "UPDATE 
-								`db_dunico`.`projects` 
+								`projects` 
 							SET 
 								`is_show`='0',
 								`is_active`='0'  
@@ -145,7 +145,7 @@
 			// else{
 			// 	foreach ($arr_status as $value) {
 			// 		$sql = "UPDATE 
-			// 					`db_dunico`.`projects` 
+			// 					`projects` 
 			// 				SET 
 			// 					`is_show`='1',
 			// 					`is_active`='1'  
