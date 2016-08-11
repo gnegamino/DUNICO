@@ -2,6 +2,7 @@
 	<body class="hidden-overflow">
 		<div class="seamless-bg"></div>
 		<?php include("navigation.php"); ?>
+		<input id="page_true" type="hidden" value="project_detail">
 	  	<div class="container-fluid">
 			<div class="row">
 			    <div id="featured" class="carousel slide carousel-fade" data-ride="carousel">

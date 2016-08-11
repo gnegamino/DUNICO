@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(function(){
-		if($('#page_true').val() == 'project_detail')
+		if($('#page_true').val() == 'project_detail' || $('#page_true').val() == 'index')
 			$('.hidden-logo').hide();
 
 		$(".hide-menu", this).click(function(){
