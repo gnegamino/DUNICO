@@ -11,6 +11,7 @@
 					$("#navigation").fadeOut(function(){
 						$(".hide-menu span").html("SHOW MENU");
 						$(".hide-menu").fadeIn();
+						$(".hidden-logo").css('visibility', 'visible');
 					});
 				});
 			}else{
@@ -18,6 +19,7 @@
 					$("#navigation").fadeIn(function(){
 						$(".hide-menu span").html("HIDE MENU");
 						$(".hide-menu").fadeIn();
+						$(".hidden-logo").css('visibility', 'hidden');
 					});
 				});
 			}
@@ -51,12 +53,15 @@
 	    </div>
 	</div>
 </nav>
-<a href="index.php">
-	<div class="hidden-logo">
-		<img src="img/dunico-white.png">
-		<div>D' UN<span class="i-red">I</span>CO</div>
-	</div>
-</a>
+
+<div class="container">
+	<a href="index.php">
+		<div class="hidden-logo">
+			<img src="img/dunico-white.png">
+			<div>D' UN<span class="i-red">I</span>CO</div>
+		</div>
+	</a>
+</div>
 <div class="hide-menu">
 	<i class="fa fa-arrows"></i>&nbsp;&nbsp;<span>HIDE MENU</span>
 </div>

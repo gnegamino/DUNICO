@@ -3,7 +3,7 @@
 	<div class="black-bg"></div>
 	<div class="seamless">
 		<?php include("navigation.php"); ?>
-	  	<div id="profile" class="container push-down">
+	  	<div id="profile" class="container push-down-breadcrumbs">
 	  		<div class="row">
 				<div class="col-md-12">
 		  			<ol id="profile-bc" class="breadcrumb">

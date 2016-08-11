@@ -3,7 +3,7 @@
 	<div class="black-bg"></div>
 	<div class="seamless">
 		<?php include("navigation.php"); ?>
-	  	<div id="contact" class="container push-down">
+	  	<div id="contact" class="container push-down-header">
 			<div class="row">
 				<div class="col-md-12">
 					<h2>CONTACT INFORMATION</h2>

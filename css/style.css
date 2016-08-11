@@ -22,9 +22,6 @@
 	font-family: Futura-Light;
 	src: url(../fonts/Futura-Book-font.ttf);
 }
-/*h1, h2, h3, p, a, div{
-	text-shadow: #000000 1px 1px 2px;
-}*/
 body.hidden-overflow{
 	overflow: hidden;
 }
@@ -74,9 +71,13 @@ select option{
 	float: left;
 }
 .hidden-logo{
-	position: absolute;
-	left: 98px;
-	top: -16px;
+	visibility: hidden;
+	font-size: 36px;
+	color: #fff;
+	font-weight: bold;
+	position: relative;
+	top: 7px;
+	font-family: Futura-Light;
 }
 .hidden-logo img{
 	width: 63px;
@@ -122,7 +123,6 @@ select option{
 	border-left: 1px solid #080808;
 }
 #navigation .navbar-header .navbar-brand,
-.hidden-logo,
 .a-logo{
 	font-size: 36px;
 	color: #fff;
@@ -201,31 +201,6 @@ select option{
 	transition: 0.4s;
 	text-decoration: none;
 }
-/*PARALLAX*/
-/*h1{
-	text-align: center;
-	font-size: 575%;
-	color: #4a4444 !important;
-	text-transform: uppercase;
-	letter-spacing: 1%;
-	margin: 15% 0;
-}
-h2{
-	text-align: left;
-	font-size: 275%;
-	color: #e5e5e5 !important;
-	text-transform: uppercase;
-	letter-spacing: 1%;
-	margin: 15% 0;
-}
-
-.parallax{
-	background: url('../arch/1.jpg') repeat fixed 100%;
-}
-.parallax-inner{
-	padding: 18% 0;
-}
-*/
 
 /*Carousel Fade Bootstrap*/
 .carousel-fade .carousel-inner .item {
@@ -291,8 +266,11 @@ h2{
 	color: #fff;
 	font-family: Lato-Light;
 }
-.push-down{
-	margin-top: 95px;
+.push-down-breadcrumbs{
+	margin-top: 40px;
+}
+.push-down-header{
+	margin-top: 15px;
 }
 #profile h2{
 	font-size: 50px;
@@ -362,7 +340,6 @@ h2{
 }
 /*Services*/
 #services{
-	margin-top: 68px;
 	color: #fff;
 	font-family: Lato-Light;
 }
@@ -386,7 +363,6 @@ h2{
 	text-align: left;
 }
 #projects{
-	margin-top: 68px;
 	color: #fff;
 	font-family: Lato-Light;
 }
@@ -430,12 +406,24 @@ h2{
 	transform: scaleX(1);
 }
 #projects .p-container{
+	float: right;
 	width: 863px;
 	height: 470px;
 	margin-top: 8px;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+@media(max-width: 1200px){
+	#projects .p-container{
+		width: 673px;
+	}
+}
+@media(max-width: 990px){
+	#projects .p-container{
+		width: 500px;
+	}
+}
+
 #projects .p-container img{
 	float: left;
 	width: 150px;
